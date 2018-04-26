@@ -11,6 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import unam.mx.SGPF.model.EntityProvider;
+import unam.mx.SGPF.model.Usuario;
+import unam.mx.SGPF.model.controller.UsuarioJpaController;
 
 /**
  *
@@ -31,6 +34,10 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         String usuario = request.getParameter("uname");
         String password = request.getParameter("psw");
+
+        UsuarioJpaController ujpa = new UsuarioJpaController(EntityProvider.provider());
+        Usuario u = ujpa.getUsuarioByUserAndPass(usuario, password);
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -43,6 +50,7 @@ public class Login extends HttpServlet {
             out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
             out.println("<h2>Usuario " + usuario + "</h2>");
             out.println("<h2>Password " + password + "</h2>");
+            out.println("<h3>U: " + u.toString() + "</h3>");
             out.println("</body>");
             out.println("</html>");
         }
