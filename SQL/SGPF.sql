@@ -9,9 +9,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 BEGIN;
 
-DROP DATABASE IF EXISTS `SGPF`;
-CREATE DATABASE IF NOT EXISTS `SGPF`;
-
 -- -----------------------------------------------------
 -- Schema SGPF
 -- -----------------------------------------------------
