@@ -1,4 +1,4 @@
-<%@page import="unam.mx.SGPF.model.InterUP"%>
+<%@page import="unam.mx.SGPF.model.Proyecto"%>
 <%@page import="java.util.List"%>
 <%@page import="unam.mx.SGPF.model.Proyecto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,20 +9,16 @@
     <title>Detalles proyecto</title>
   </head>
   <%
-     List<InterUP> inters = (List<InterUP>) session.getAttribute("inters");
+     //InterUP inters = (List<InterUP>) session.getAttribute("inters");
+  	 Proyecto p = (Proyecto) session.getAttribute("proy");
   %>
 
   <body>
-    <h1>Proyectos</h1>
+    <h1>Detalle proyecto</h1>
+	<table border="1">
 
-    <%
-      for (InterUP inter : inters) {
-          Proyecto p = inter.getIdproyecto();
-    %>
-
-    <table border="1">
-      <tr>
-        <td>Nombre:</td>
+    <tr>
+        <td>Nombre Proyecto:</td>
         <td><%=p.getNomProy()%></td>
       </tr>
       <tr>
@@ -34,10 +30,6 @@
         <td><%=p.getDuraProy()%></td>
       </tr>
     </table>
-
-    <%
-      }
-    %>
 
 
 

@@ -1,3 +1,6 @@
+<%@page import="unam.mx.SGPF.model.InterUP"%>
+<%@page import="java.util.List"%>
+<%@page import="unam.mx.SGPF.model.Proyecto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -5,10 +8,26 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Lista de proyectos</title>
   </head>
+  <%
+     List<InterUP> inters = (List<InterUP>) session.getAttribute("inters");
+  %>
   <body>
     <h1>Proyectos</h1>
-
-    <a href="BuscaProyecto?idProyecto=1">Proyecto 1</a>
-    <a href="BuscaProyecto?idProyecto=2">Proyecto 2</a>
+    
+    <table border="1">
+    <%
+      for (InterUP inter : inters) {
+          Proyecto p = inter.getIdproyecto();
+    %>
+    <tr>
+        <td>Nombre Proyecto:</td>
+        <td><a href="BuscaProyecto?idProyecto=<%=p.getIdproyecto()%>"><%=p.getNomProy()%></a></td>
+        
+      </tr>
+ 
+    <%
+      }
+    %>
+     </table>
   </body>
 </html>

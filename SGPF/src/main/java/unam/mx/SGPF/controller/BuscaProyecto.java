@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import unam.mx.SGPF.model.EntityProvider;
 import unam.mx.SGPF.model.InterUP;
+import unam.mx.SGPF.model.Proyecto;
 import unam.mx.SGPF.model.Usuario;
 import unam.mx.SGPF.model.controller.InterUPJpaController;
+import unam.mx.SGPF.model.controller.ProyectoJpaController;
 
 /**
  *
@@ -34,14 +36,14 @@ public class BuscaProyecto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
+    	Integer idProyecto = Integer.parseInt(request.getParameter("idProyecto"));
+    	ProyectoJpaController pjpa = new ProyectoJpaController(EntityProvider.provider());
+    	Proyecto p = pjpa.findProyecto(idProyecto);
+    	
         HttpSession session = request.getSession(true);
-
-        Integer idUsuario = 1;
-        InterUPJpaController ijpa = new InterUPJpaController(EntityProvider.provider());
-        Usuario u = new Usuario(idUsuario);
-        List<InterUP> inters = ijpa.getProyectosUsuario(u);
-
-        session.setAttribute("inters", inters);
+        
+        session.setAttribute("proy", p);
         response.sendRedirect("detalleProyecto.jsp");
     }
 
