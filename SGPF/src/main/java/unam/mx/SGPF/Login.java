@@ -42,12 +42,18 @@ public class Login extends HttpServlet {
         UsuarioJpaController ujpa = new UsuarioJpaController(EntityProvider.provider());
         Usuario u = ujpa.getUsuarioByUserAndPass(usuario, pass);
         
-        //Objeto que establece la sesión 
-        HttpSession session = request.getSession(true);
+        if(u==null) {
+        	response.sendRedirect("index.jsp");
+        }else {
+        	//Objeto que establece la sesión 
+            HttpSession session = request.getSession(true);
+            
+            //Apuntador al objeto u
+            session.setAttribute("usuario", u);
+            response.sendRedirect("proyectos.jsp");
+        }
         
-        //Apuntador al objeto u
-        session.setAttribute("usuario", u);
-        response.sendRedirect("proyectos.jsp");
+        
     }
 
     /**
