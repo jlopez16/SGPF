@@ -24,11 +24,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author miguel
  */
 @Entity
-@Table(catalog = "SGPF", schema = "")
+@Table(name = "interUP")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "InterUP.findAll", query = "SELECT i FROM InterUP i")
-    , @NamedQuery(name = "InterUP.findByIdinterUP", query = "SELECT i FROM InterUP i WHERE i.idinterUP = :idinterUP")})
+    , @NamedQuery(name = "InterUP.findByIdinterUP", query = "SELECT i FROM InterUP i WHERE i.idinterUP = :idinterUP")
+    , @NamedQuery(name = "InterUP.findByIdUsuario", query = "SELECT i FROM InterUP i where i.idusuario = :idUsuario")})
 public class InterUP implements Serializable {
 
     private static final long serialVersionUID = 1L;
