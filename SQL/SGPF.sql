@@ -232,6 +232,7 @@ set foreign_key_checks = 0;
 -- END //
 
 INSERT INTO usuarioFuncional values(1,'Juan');
+insert into usuario (idusuario, nomUsuario, pwdUsuario) values (1, 'Olga', 'pass');
 insert into subProceso values(1,0,'prueba',1,1,1,1);
 INSERT INTO procesoFuncional VALUES (1,'nombre','desci','¿e',1,25);
 
@@ -326,6 +327,9 @@ insert into proyecto (  idproyecto,
   escala)
 values
 (2, 'proyecto 2', '1993', true, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, true, 10, true, false, 'foo', 12.0, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', false, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg');
+
+insert into interUP (idusuario, idproyecto) values (1, 1);
+insert into interUP (idusuario, idproyecto) values (1, 2);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
