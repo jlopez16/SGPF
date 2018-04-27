@@ -11,66 +11,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import unam.mx.SGPF.model.EntityProvider;
 import unam.mx.SGPF.model.Usuario;
 import unam.mx.SGPF.model.controller.UsuarioJpaController;
 
 /**
  *
- * @author miguel
+ * @author pancha
  */
 public class Login extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String usuario = request.getParameter("uname");
-        String password = request.getParameter("psw");
-
-        UsuarioJpaController ujpa = new UsuarioJpaController(EntityProvider.provider());
-        Usuario u = ujpa.getUsuarioByUserAndPass(usuario, password);
-
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Login</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
-            out.println("<h2>Usuario " + usuario + "</h2>");
-            out.println("<h2>Password " + password + "</h2>");
-            out.println("<h3>U: " + u.toString() + "</h3>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -82,7 +33,21 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+    	//Aquí recibe los parámetros del formulario de inicio de sesión 
+        String usuario = request.getParameter("uname");
+        String pass = request.getParameter("psw");
+        
+        //Clase de metodos para el crud
+        //Objeto que establece la conexión ujpa de tabla USUARIO
+        UsuarioJpaController ujpa = new UsuarioJpaController(EntityProvider.provider());
+        Usuario u = ujpa.getUsuarioByUserAndPass(usuario, pass);
+        
+        //Objeto que establece la sesión 
+        HttpSession session = request.getSession(true);
+        
+        //Apuntador al objeto u
+        session.setAttribute("usuario", u);
+        response.sendRedirect("proyectos.jsp");
     }
 
     /**
