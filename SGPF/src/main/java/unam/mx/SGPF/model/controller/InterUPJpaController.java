@@ -9,8 +9,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import unam.mx.SGPF.model.InterUP;
@@ -192,6 +192,13 @@ public class InterUPJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    public List<InterUP> getProyectosUsuario(Usuario idUsuario) {
+        EntityManager em = getEntityManager();
+        Query q = em.createNamedQuery("InterUP.findByIdUsuario")
+                .setParameter("idUsuario", idUsuario);
+        return q.getResultList();
     }
 
 }
