@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `SGPF`.`procesoFuncional` (
   `idprocesoFuncional` INT NOT NULL AUTO_INCREMENT,
   `nomPF` VARCHAR(45) NOT NULL,
   `descripcion` VARCHAR(250) NOT NULL,
-  `entradaDes` VARCHAR(250) NOT NULL,
+  `eventoDes` VARCHAR(250) NOT NULL,
   `idproyecto` INT NOT NULL,
   `tamPF` INT NOT NULL,
   PRIMARY KEY (`idprocesoFuncional`),
