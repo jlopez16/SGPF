@@ -1,6 +1,6 @@
 <%@page import="unam.mx.SGPF.model.Proyecto"%>
+<%@page import="unam.mx.SGPF.model.ProcesoFuncional"%>
 <%@page import="java.util.List"%>
-<%@page import="unam.mx.SGPF.model.Proyecto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
     <title>Detalles proyecto</title>
   </head>
   <%
-     //InterUP inters = (List<InterUP>) session.getAttribute("inters");
+     List<ProcesoFuncional> pfs = (List<ProcesoFuncional>) session.getAttribute("procFunc");
   	 Proyecto p = (Proyecto) session.getAttribute("proy");
   %>
 
@@ -30,6 +30,22 @@
         <td><%=p.getDuraProy()%></td>
       </tr>
     </table>
+    
+    
+    <table border="1">
+    <%
+      for (ProcesoFuncional inter : pfs) {
+          //ProcesoFuncional pf = inter.getIdprocesoFuncional();
+    %>
+    <tr>
+        <td>Nombre Proyecto:</td>
+        <td><a href="BuscaProcesoFuncional?idprocesoFuncional=<%=inter.getIdprocesoFuncional()%>"><%=inter.getNomPF()%></a></td>
+      </tr>
+ 
+    <%
+      }
+    %>
+     </table>
 
 
 

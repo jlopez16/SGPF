@@ -28,14 +28,15 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author miguel
  */
 @Entity
-@Table(catalog = "SGPF", schema = "")
+@Table(name="procesofuncional")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "ProcesoFuncional.findAll", query = "SELECT p FROM ProcesoFuncional p")
     , @NamedQuery(name = "ProcesoFuncional.findByIdprocesoFuncional", query = "SELECT p FROM ProcesoFuncional p WHERE p.idprocesoFuncional = :idprocesoFuncional")
+    , @NamedQuery(name = "ProcesoFuncional.findByIdproyecto", query = "SELECT p FROM ProcesoFuncional p WHERE p.idproyecto = :idproyecto")
     , @NamedQuery(name = "ProcesoFuncional.findByNomPF", query = "SELECT p FROM ProcesoFuncional p WHERE p.nomPF = :nomPF")
     , @NamedQuery(name = "ProcesoFuncional.findByDescripcion", query = "SELECT p FROM ProcesoFuncional p WHERE p.descripcion = :descripcion")
-    , @NamedQuery(name = "ProcesoFuncional.findByEntradaDes", query = "SELECT p FROM ProcesoFuncional p WHERE p.entradaDes = :entradaDes")
+    , @NamedQuery(name = "ProcesoFuncional.findByeventoDes", query = "SELECT p FROM ProcesoFuncional p WHERE p.eventoDes = :eventoDes")
     , @NamedQuery(name = "ProcesoFuncional.findByTamPF", query = "SELECT p FROM ProcesoFuncional p WHERE p.tamPF = :tamPF")})
 public class ProcesoFuncional implements Serializable {
 
@@ -53,7 +54,7 @@ public class ProcesoFuncional implements Serializable {
     private String descripcion;
     @Basic(optional = false)
     @Column(nullable = false, length = 250)
-    private String entradaDes;
+    private String eventoDes;
     @Basic(optional = false)
     @Column(nullable = false)
     private int tamPF;
@@ -70,11 +71,11 @@ public class ProcesoFuncional implements Serializable {
         this.idprocesoFuncional = idprocesoFuncional;
     }
 
-    public ProcesoFuncional(Integer idprocesoFuncional, String nomPF, String descripcion, String entradaDes, int tamPF) {
+    public ProcesoFuncional(Integer idprocesoFuncional, String nomPF, String descripcion, String eventoDes, int tamPF) {
         this.idprocesoFuncional = idprocesoFuncional;
         this.nomPF = nomPF;
         this.descripcion = descripcion;
-        this.entradaDes = entradaDes;
+        this.eventoDes = eventoDes;
         this.tamPF = tamPF;
     }
 
@@ -102,12 +103,12 @@ public class ProcesoFuncional implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getEntradaDes() {
-        return entradaDes;
+    public String geteventoDes() {
+        return eventoDes;
     }
 
-    public void setEntradaDes(String entradaDes) {
-        this.entradaDes = entradaDes;
+    public void seteventoDes(String eventoDes) {
+        this.eventoDes = eventoDes;
     }
 
     public int getTamPF() {

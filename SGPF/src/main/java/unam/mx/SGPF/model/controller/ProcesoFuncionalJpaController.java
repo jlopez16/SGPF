@@ -20,10 +20,6 @@ import unam.mx.SGPF.model.ProcesoFuncional;
 import unam.mx.SGPF.model.controller.exceptions.IllegalOrphanException;
 import unam.mx.SGPF.model.controller.exceptions.NonexistentEntityException;
 
-/**
- *
- * @author miguel
- */
 public class ProcesoFuncionalJpaController implements Serializable {
 
     public ProcesoFuncionalJpaController(EntityManagerFactory emf) {
@@ -214,6 +210,14 @@ public class ProcesoFuncionalJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+    
+    public List<ProcesoFuncional> findPFByIdProyecto(Integer idProyecto){
+    	EntityManager em = getEntityManager();
+    	Proyecto p = new Proyecto(idProyecto);
+    	Query q = em.createNamedQuery("ProcesoFuncional.findByIdproyecto")
+    			     .setParameter("idproyecto", p);
+    	return q.getResultList();
     }
 
     public int getProcesoFuncionalCount() {

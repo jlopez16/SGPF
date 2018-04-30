@@ -21,10 +21,7 @@ import unam.mx.SGPF.model.controller.exceptions.IllegalOrphanException;
 import unam.mx.SGPF.model.controller.exceptions.NonexistentEntityException;
 import unam.mx.SGPF.model.controller.exceptions.PreexistingEntityException;
 
-/**
- *
- * @author miguel
- */
+
 public class ProyectoJpaController implements Serializable {
 
     public ProyectoJpaController(EntityManagerFactory emf) {

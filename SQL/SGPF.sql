@@ -331,9 +331,9 @@ values
 insert into interUP (idusuario, idproyecto) values (1, 1);
 insert into interUP (idusuario, idproyecto) values (1, 2);
 
-insert into procesofuncional (nomPF,descripcion,entradaDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenante',2,0);
+insert into procesofuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenante',2,0);
 
-insert into procesofuncional (nomPF,descripcion,entradaDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenenante',2,0);
+insert into procesofuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenenante',2,0);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import unam.mx.SGPF.model.EntityProvider;
 import unam.mx.SGPF.model.InterUP;
+import unam.mx.SGPF.model.ProcesoFuncional;
 import unam.mx.SGPF.model.Proyecto;
 import unam.mx.SGPF.model.Usuario;
 import unam.mx.SGPF.model.controller.InterUPJpaController;
+import unam.mx.SGPF.model.controller.ProcesoFuncionalJpaController;
 import unam.mx.SGPF.model.controller.ProyectoJpaController;
 
 /**
@@ -42,6 +44,12 @@ public class BuscaProyecto extends HttpServlet {
     	Proyecto p = pjpa.findProyecto(idProyecto);
     	
         HttpSession session = request.getSession(true);
+        
+        ////////
+    	ProcesoFuncionalJpaController pfjpa = new ProcesoFuncionalJpaController(EntityProvider.provider());
+    	List<ProcesoFuncional> pf = pfjpa.findPFByIdProyecto(idProyecto);
+        session.setAttribute("procFunc", pf);
+        ////
         
         session.setAttribute("proy", p);
         response.sendRedirect("detalleProyecto.jsp");
