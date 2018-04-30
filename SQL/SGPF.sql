@@ -131,6 +131,7 @@ DROP TABLE IF EXISTS `SGPF`.`accion` ;
 CREATE TABLE IF NOT EXISTS `SGPF`.`accion` (
   `idaccion` INT NOT NULL AUTO_INCREMENT,
   `nomAccion` VARCHAR(45) NOT NULL,
+  `movDatos` CHAR(1) NOT NULL, 
   PRIMARY KEY (`idaccion`))
 ENGINE = InnoDB;
 
