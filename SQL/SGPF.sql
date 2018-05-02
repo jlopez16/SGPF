@@ -131,7 +131,7 @@ DROP TABLE IF EXISTS `SGPF`.`accion` ;
 CREATE TABLE IF NOT EXISTS `SGPF`.`accion` (
   `idaccion` INT NOT NULL AUTO_INCREMENT,
   `nomAccion` VARCHAR(45) NOT NULL,
-  `movDatos` CHAR(1) NOT NULL, 
+  `movDatos` CHAR(1) NOT NULL,
   PRIMARY KEY (`idaccion`))
 ENGINE = InnoDB;
 
@@ -332,9 +332,9 @@ values
 insert into interUP (idusuario, idproyecto) values (1, 1);
 insert into interUP (idusuario, idproyecto) values (1, 2);
 
-insert into procesofuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenante',2,0);
+insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenante',2,0);
 
-insert into procesofuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenenante',2,0);
+insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenenante',2,0);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
