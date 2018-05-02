@@ -6,15 +6,15 @@
 package unam.mx.SGPF.model.controller;
 
 import java.io.Serializable;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-import unam.mx.SGPF.model.InterUP;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import unam.mx.SGPF.model.InterUP;
 import unam.mx.SGPF.model.ProcesoFuncional;
 import unam.mx.SGPF.model.Proyecto;
 import unam.mx.SGPF.model.controller.exceptions.IllegalOrphanException;
@@ -255,6 +255,15 @@ public class ProyectoJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    public Proyecto findLastProyecto() {
+        EntityManager em = getEntityManager();
+        Query q = em.createNativeQuery("select * from proyecto order by idProyecto desc limit 1", Proyecto.class);
+        if (q.getResultList().isEmpty()) {
+            return null;
+        }
+        return (Proyecto) q.getSingleResult();
     }
 
 }
