@@ -21,10 +21,6 @@ import unam.mx.SGPF.model.controller.InterUPJpaController;
 import unam.mx.SGPF.model.controller.ProcesoFuncionalJpaController;
 import unam.mx.SGPF.model.controller.ProyectoJpaController;
 
-/**
- *
- * @author miguel
- */
 public class BuscaProyecto extends HttpServlet {
 
     /**

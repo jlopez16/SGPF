@@ -22,9 +22,7 @@
     <tr>
         <td>Nombre Proyecto:</td>
         <td><a href="BuscaProyecto?idProyecto=<%=p.getIdproyecto()%>"><%=p.getNomProy()%></a></td>
-        
-      </tr>
- 
+    </tr>
     <%
       }
     %>

@@ -38,7 +38,7 @@
           //ProcesoFuncional pf = inter.getIdprocesoFuncional();
     %>
     <tr>
-        <td>Nombre Proyecto:</td>
+        <td>Nombre del Proceso Funcional:</td>
         <td><a href="BuscaProcesoFuncional?idprocesoFuncional=<%=inter.getIdprocesoFuncional()%>"><%=inter.getNomPF()%></a></td>
       </tr>
  
