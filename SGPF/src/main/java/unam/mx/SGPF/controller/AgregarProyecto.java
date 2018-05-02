@@ -6,9 +6,7 @@
 package unam.mx.SGPF.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import unam.mx.SGPF.model.EntityProvider;
-import unam.mx.SGPF.model.ProcesoFuncional;
+import unam.mx.SGPF.model.InterUP;
 import unam.mx.SGPF.model.Proyecto;
-import unam.mx.SGPF.model.controller.ProcesoFuncionalJpaController;
+import unam.mx.SGPF.model.Usuario;
+import unam.mx.SGPF.model.controller.InterUPJpaController;
 import unam.mx.SGPF.model.controller.ProyectoJpaController;
 
 /**
@@ -53,19 +52,36 @@ public class AgregarProyecto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String redireccion = "";
         String nombreProy = request.getParameter("nombreProyecto");
-    	ProyectoJpaController pjpa = new ProyectoJpaController(EntityProvider.provider());
+        HttpSession session = request.getSession(true);
+        Usuario u = (Usuario) session.getAttribute("usuario");
+        InterUPJpaController ijpa = new InterUPJpaController(EntityProvider.provider());
+
+        System.out.println("Nombre proyecto: " + nombreProy);
+        ProyectoJpaController pjpa = new ProyectoJpaController(EntityProvider.provider());
         short a = 1;
         BigDecimal big = new BigDecimal(0.24);
         Proyecto newProyecto = new Proyecto(nombreProy, "2015", a, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, a, 1, a, a, nombreProy, big, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, a, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy);
         try {
             pjpa.create(newProyecto);
+            // FIXME: Esta evaluación monousuario y no considera los problemas de concurrencia.
+            newProyecto = pjpa.findLastProyecto();
+            InterUP up = new InterUP();
+            up.setIdproyecto(newProyecto);
+            up.setIdusuario(u);
+            ijpa.create(up);
+            List<InterUP> inters = ijpa.getProyectosUsuario(u);
+            // Apuntador al objeto u
+            session.setAttribute("usuario", u);
+            session.setAttribute("inters", inters);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("agregarProyecto.jsp");
+            redireccion = "agregarProyecto.jsp";
             return;
         } finally {
-            response.sendRedirect("proyectos.jsp");
+            redireccion = "proyectos.jsp";
+            response.sendRedirect(redireccion);
         }
     }
 
