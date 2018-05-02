@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -76,134 +78,92 @@ public class Proyecto implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(nullable = false)
     private Integer idproyecto;
-    @Basic(optional = false)
     @Column(nullable = false, length = 60)
     private String nomProy;
-    @Basic(optional = false)
     @Column(nullable = false, length = 4)
     private String anioProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private short operProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int duraProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int esfuTotProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int esfuPlaneProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int esfuEsReqProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int esfuAnaDisProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int esfuConstProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int esfuPrueProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int esfuImpleDesProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int costTotProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int costEsReqProy;
-    @Basic(optional = false)
-    @Column(nullable = false)
+   @Column(nullable = false)
     private int costAnaDisProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int costConstProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int costPrueProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int costImpleDesProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int tamFunProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int fpAjusProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private short medidorCertProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private int expeMedMetProy;
-    @Basic(optional = false)
     @Column(nullable = false)
     private short usoCase;
-    @Basic(optional = false)
     @Column(nullable = false)
     private short certModelo;
-    @Basic(optional = false)
     @Column(nullable = false, length = 250)
     private String comCertModelo;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Basic(optional = false)
     @Column(nullable = false, precision = 11, scale = 2)
     private BigDecimal costPlanProy;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String confInfo;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String arqProyecto;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String metDesarrollo;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String metMedicion;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String sisOpe;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String tipoDesarrollo;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String lenguaje;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String modCalidad;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String baseDatos;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String secOrg;
-    @Basic(optional = false)
     @Column(nullable = false)
     private short estatus;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String tipoOrg;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String tipoCapOrg;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String tamOrgDes;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String tamOrgUsa;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String marcoPosUsa;
-    @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String escala;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idproyecto")
@@ -220,6 +180,51 @@ public class Proyecto implements Serializable {
 
     public Proyecto(Integer idproyecto, String nomProy, String anioProy, short operProy, int duraProy, int esfuTotProy, int esfuPlaneProy, int esfuEsReqProy, int esfuAnaDisProy, int esfuConstProy, int esfuPrueProy, int esfuImpleDesProy, int costTotProy, int costEsReqProy, int costAnaDisProy, int costConstProy, int costPrueProy, int costImpleDesProy, int tamFunProy, int fpAjusProy, short medidorCertProy, int expeMedMetProy, short usoCase, short certModelo, String comCertModelo, BigDecimal costPlanProy, String confInfo, String arqProyecto, String metDesarrollo, String metMedicion, String sisOpe, String tipoDesarrollo, String lenguaje, String modCalidad, String baseDatos, String secOrg, short estatus, String tipoOrg, String tipoCapOrg, String tamOrgDes, String tamOrgUsa, String marcoPosUsa, String escala) {
         this.idproyecto = idproyecto;
+        this.nomProy = nomProy;
+        this.anioProy = anioProy;
+        this.operProy = operProy;
+        this.duraProy = duraProy;
+        this.esfuTotProy = esfuTotProy;
+        this.esfuPlaneProy = esfuPlaneProy;
+        this.esfuEsReqProy = esfuEsReqProy;
+        this.esfuAnaDisProy = esfuAnaDisProy;
+        this.esfuConstProy = esfuConstProy;
+        this.esfuPrueProy = esfuPrueProy;
+        this.esfuImpleDesProy = esfuImpleDesProy;
+        this.costTotProy = costTotProy;
+        this.costEsReqProy = costEsReqProy;
+        this.costAnaDisProy = costAnaDisProy;
+        this.costConstProy = costConstProy;
+        this.costPrueProy = costPrueProy;
+        this.costImpleDesProy = costImpleDesProy;
+        this.tamFunProy = tamFunProy;
+        this.fpAjusProy = fpAjusProy;
+        this.medidorCertProy = medidorCertProy;
+        this.expeMedMetProy = expeMedMetProy;
+        this.usoCase = usoCase;
+        this.certModelo = certModelo;
+        this.comCertModelo = comCertModelo;
+        this.costPlanProy = costPlanProy;
+        this.confInfo = confInfo;
+        this.arqProyecto = arqProyecto;
+        this.metDesarrollo = metDesarrollo;
+        this.metMedicion = metMedicion;
+        this.sisOpe = sisOpe;
+        this.tipoDesarrollo = tipoDesarrollo;
+        this.lenguaje = lenguaje;
+        this.modCalidad = modCalidad;
+        this.baseDatos = baseDatos;
+        this.secOrg = secOrg;
+        this.estatus = estatus;
+        this.tipoOrg = tipoOrg;
+        this.tipoCapOrg = tipoCapOrg;
+        this.tamOrgDes = tamOrgDes;
+        this.tamOrgUsa = tamOrgUsa;
+        this.marcoPosUsa = marcoPosUsa;
+        this.escala = escala;
+    }
+    
+    public Proyecto(String nomProy, String anioProy, short operProy, int duraProy, int esfuTotProy, int esfuPlaneProy, int esfuEsReqProy, int esfuAnaDisProy, int esfuConstProy, int esfuPrueProy, int esfuImpleDesProy, int costTotProy, int costEsReqProy, int costAnaDisProy, int costConstProy, int costPrueProy, int costImpleDesProy, int tamFunProy, int fpAjusProy, short medidorCertProy, int expeMedMetProy, short usoCase, short certModelo, String comCertModelo, BigDecimal costPlanProy, String confInfo, String arqProyecto, String metDesarrollo, String metMedicion, String sisOpe, String tipoDesarrollo, String lenguaje, String modCalidad, String baseDatos, String secOrg, short estatus, String tipoOrg, String tipoCapOrg, String tamOrgDes, String tamOrgUsa, String marcoPosUsa, String escala) {
         this.nomProy = nomProy;
         this.anioProy = anioProy;
         this.operProy = operProy;

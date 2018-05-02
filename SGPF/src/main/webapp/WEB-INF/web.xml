@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <display-name>Archetype Created Web Application</display-name>
     <servlet>
         <servlet-name>Login</servlet-name>
@@ -12,6 +9,14 @@
         <servlet-name>BuscaProyecto</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.BuscaProyecto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuscaProcesoFuncional</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.BuscaProcesoFuncional</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AgregarProyecto</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.AgregarProyecto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -19,5 +24,13 @@
     <servlet-mapping>
         <servlet-name>BuscaProyecto</servlet-name>
         <url-pattern>/BuscaProyecto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscaProcesoFuncional</servlet-name>
+        <url-pattern>/BuscaProcesoFuncional</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AgregarProyecto</servlet-name>
+        <url-pattern>/AgregarProyecto</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [02/May/2018:17:15:04 -0500] "GET /sgpf/ HTTP/1.1" 200 811 http-bio-8080-exec-1 580
+0:0:0:0:0:0:0:1 - - [02/May/2018:17:15:07 -0500] "POST /sgpf/Login HTTP/1.1" 302 - http-bio-8080-exec-3 1516
+0:0:0:0:0:0:0:1 - - [02/May/2018:17:15:07 -0500] "GET /sgpf/proyectos.jsp HTTP/1.1" 200 837 http-bio-8080-exec-4 114
+0:0:0:0:0:0:0:1 - - [02/May/2018:17:15:09 -0500] "GET /sgpf/agregarProyecto.jsp HTTP/1.1" 200 520 http-bio-8080-exec-5 84
+0:0:0:0:0:0:0:1 - - [02/May/2018:17:15:13 -0500] "POST /sgpf/AgregarProyecto HTTP/1.1" 200 151 http-bio-8080-exec-6 42
