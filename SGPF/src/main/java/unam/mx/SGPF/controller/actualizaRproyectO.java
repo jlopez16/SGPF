@@ -25,6 +25,7 @@ import unam.mx.SGPF.model.controller.ProyectoJpaController;
  * @author jlope
  */
 public class actualizaRproyectO extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,16 +33,17 @@ public class actualizaRproyectO extends HttpServlet {
         String redireccion = "";
         String nombreProy = request.getParameter("nombreProyecto");
         int idProy = Integer.parseInt(request.getParameter("idProyecto"));
-        System.out.println("Get parameter = "+request.getParameter("idProyecto") + " y id es: " + idProy);
+        System.out.println("Get parameter = " + request.getParameter("idProyecto") + " y id es: " + idProy);
         HttpSession session = request.getSession(true);
         Usuario u = (Usuario) session.getAttribute("usuario");
-       
+
         ProyectoJpaController pjpa = new ProyectoJpaController(EntityProvider.provider());
         short a = 1;
         BigDecimal big = new BigDecimal(0.24);
-        Proyecto newProyecto = new Proyecto(idProy, nombreProy, "2015", a, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, a, 1, a, a, nombreProy, big, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, a, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy);
+        Proyecto p = pjpa.findProyecto(idProy);
+        p.setNomProy(nombreProy);
         try {
-            pjpa.edit(newProyecto);
+            pjpa.edit(p);
             InterUPJpaController ijpa = new InterUPJpaController(EntityProvider.provider());
             List<InterUP> inters = ijpa.getProyectosUsuario(u);
             // Apuntador al objeto u
@@ -57,5 +59,4 @@ public class actualizaRproyectO extends HttpServlet {
         }
     }
 
-  
 }
