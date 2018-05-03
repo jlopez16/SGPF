@@ -10,6 +10,10 @@
         <servlet-class>unam.mx.SGPF.controller.BuscaProyecto</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>actualizaRproyectO</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.actualizaRproyectO</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>BuscaProcesoFuncional</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.BuscaProcesoFuncional</servlet-class>
     </servlet>
@@ -24,6 +28,10 @@
     <servlet-mapping>
         <servlet-name>BuscaProyecto</servlet-name>
         <url-pattern>/BuscaProyecto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>actualizaRproyectO</servlet-name>
+        <url-pattern>/actualizaRproyectO</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BuscaProcesoFuncional</servlet-name>

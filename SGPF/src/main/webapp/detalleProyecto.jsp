@@ -41,10 +41,13 @@
         <td>Nombre del Proceso Funcional:</td>
         <td><a href="BuscaProcesoFuncional?idprocesoFuncional=<%=inter.getIdprocesoFuncional()%>"><%=inter.getNomPF()%></a></td>
       </tr>
- 
+  
     <%
       }
     %>
+    <tr>
+      <td><a href="modificaProyecto.jsp"><input type="submit" value="Modificar"/></a> </td>
+      </tr>
      </table>
 
 
