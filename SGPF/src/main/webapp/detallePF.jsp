@@ -8,10 +8,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <%
-     ProcesoFuncional detalle = (ProcesoFuncional) session.getAttribute("pfDetalle");
-  %>
-        <h1>Hello World!</h1>
-        <%=detalle.getTamPF()%>
+        <%
+     	ProcesoFuncional detalle = (ProcesoFuncional) session.getAttribute("pfDetalle");
+  		%>
+        <h1>Detalle de Proceso Funcional</h1>
+        <%=detalle.getNomPF()%>
+        <%=detalle.getDescripcion()%>
+        <%=detalle.geteventoDes()%>
+        <br>
+        <a href="modificaPF.jsp"><input type="submit" value="Modificar"/></a>
+        <h2>Lista de SUB-PROCESOS</h2>
     </body>
 </html>

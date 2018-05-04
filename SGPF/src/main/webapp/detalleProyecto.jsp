@@ -30,8 +30,9 @@
         <td><%=p.getDuraProy()%></td>
       </tr>
     </table>
-    
-    
+    <br>
+    <h1>Procesos funcionales relacionados al Proyecto</h1>
+    <br>
     <table border="1">
     <%
       for (ProcesoFuncional inter : pfs) {
