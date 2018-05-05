@@ -18,10 +18,6 @@ import unam.mx.SGPF.model.Proyecto;
 import unam.mx.SGPF.model.Usuario;
 import unam.mx.SGPF.model.controller.exceptions.NonexistentEntityException;
 
-/**
- *
- * @author miguel
- */
 public class InterUPJpaController implements Serializable {
 
     public InterUPJpaController(EntityManagerFactory emf) {

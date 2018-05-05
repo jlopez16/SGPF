@@ -336,6 +336,17 @@ insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) valu
 
 insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenenante',2,0);
 
+insert into accion (nomAccion,movDatos) values ('ingresa','E');
+insert into accion (nomAccion,movDatos) values ('despliega','X');
+
+insert into grupoDato (nomGD) values ('estudiante');
+
+insert into usuarioFuncional (nomUF) values ('Registrador');
+insert into usuarioFuncional (nomUF) values ('C-Reg');
+
+insert into subProceso (flujoAl,descripcion, idusuarioFuncional,idaccion,idgrupoDato,idprocesoFuncional) values (0,'los datos de',2,1,1,2);
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

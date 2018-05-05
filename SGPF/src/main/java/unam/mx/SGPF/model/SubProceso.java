@@ -19,10 +19,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author miguel
- */
+
 @Entity
 @Table(catalog = "SGPF", schema = "")
 @XmlRootElement
@@ -30,6 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "SubProceso.findAll", query = "SELECT s FROM SubProceso s")
     , @NamedQuery(name = "SubProceso.findByIdsubProceso", query = "SELECT s FROM SubProceso s WHERE s.idsubProceso = :idsubProceso")
     , @NamedQuery(name = "SubProceso.findByFlujoAl", query = "SELECT s FROM SubProceso s WHERE s.flujoAl = :flujoAl")
+    , @NamedQuery(name = "SubProceso.findSPByIdProcesoFuncional", query = "SELECT s FROM SubProceso s WHERE s.idprocesoFuncional = :idPF")
     , @NamedQuery(name = "SubProceso.findByDescripcion", query = "SELECT s FROM SubProceso s WHERE s.descripcion = :descripcion")})
 public class SubProceso implements Serializable {
 

@@ -20,10 +20,6 @@ import unam.mx.SGPF.model.SubProceso;
 import unam.mx.SGPF.model.UsuarioFuncional;
 import unam.mx.SGPF.model.controller.exceptions.NonexistentEntityException;
 
-/**
- *
- * @author miguel
- */
 public class SubProcesoJpaController implements Serializable {
 
     public SubProcesoJpaController(EntityManagerFactory emf) {
@@ -228,6 +224,14 @@ public class SubProcesoJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+    
+    public List<SubProceso> findSPByIdProcesoFuncional(Integer idPF){
+    	EntityManager em = getEntityManager();
+    	ProcesoFuncional pf = new ProcesoFuncional(idPF);
+    	Query q = em.createNamedQuery("SubProceso.findSPByIdProcesoFuncional")
+    			.setParameter("idPF", pf);
+    	return q.getResultList();
     }
 
     public SubProceso findSubProceso(Integer id) {
