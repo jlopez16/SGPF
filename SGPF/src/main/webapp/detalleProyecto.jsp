@@ -29,6 +29,12 @@
         <td>Duracion:</td>
         <td><%=p.getDuraProy()%></td>
       </tr>
+      <tr>
+      	<td><a href="modificaProyecto.jsp"><input type="submit" value="Modificar"/></a> </td>
+      	<form action="eliminarProyecto" method="post">
+      		<input type="submit" value="Eliminar"/>
+      	</form>
+      </tr>
     </table>
     <br>
     <h1>Procesos funcionales relacionados al Proyecto</h1>
@@ -46,9 +52,7 @@
     <%
       }
     %>
-    <tr>
-      <td><a href="modificaProyecto.jsp"><input type="submit" value="Modificar"/></a> </td>
-      </tr>
+    
      </table>
 
 

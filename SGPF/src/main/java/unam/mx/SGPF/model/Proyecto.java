@@ -22,16 +22,12 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author miguel
- */
 @Entity
 @Table(name = "proyecto")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Proyecto.findAll", query = "SELECT p FROM Proyecto p")
-    , @NamedQuery(name = "Proyecto.findByIdproyecto", query = "SELECT p FROM Proyecto p WHERE p.idproyecto = :idproyecto")
+    , @NamedQuery(name = "Proyecto.findByIdproyecto", query = "SELECT p FROM Proyecto p WHERE p.idproyecto = :idproyecto and p.estatus=0")
     , @NamedQuery(name = "Proyecto.findByNomProy", query = "SELECT p FROM Proyecto p WHERE p.nomProy = :nomProy")
     , @NamedQuery(name = "Proyecto.findByAnioProy", query = "SELECT p FROM Proyecto p WHERE p.anioProy = :anioProy")
     , @NamedQuery(name = "Proyecto.findByOperProy", query = "SELECT p FROM Proyecto p WHERE p.operProy = :operProy")

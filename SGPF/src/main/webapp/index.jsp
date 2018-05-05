@@ -1,6 +1,6 @@
 <html>
 <body>
-  <h2>Hello World Alguita...!</h2>
+  <h2>Sistema de Gestión de Procesos Funcionales</h2>
 
   <form action="Login" method="post">
 

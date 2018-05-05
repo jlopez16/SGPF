@@ -21,10 +21,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author miguel
- */
+
 @Entity
 @Table(catalog = "SGPF", schema = "")
 @XmlRootElement
@@ -43,7 +40,17 @@ public class Accion implements Serializable {
     @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String nomAccion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idaccion")
+    @Column(nullable = false, length = 1)
+    private String movDatos;
+    public String getMovDatos() {
+		return movDatos;
+	}
+
+	public void setMovDatos(String movDatos) {
+		this.movDatos = movDatos;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "idaccion")
     private List<SubProceso> subProcesoList;
 
     public Accion() {

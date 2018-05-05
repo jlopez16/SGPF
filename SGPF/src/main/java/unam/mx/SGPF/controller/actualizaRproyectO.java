@@ -20,10 +20,6 @@ import unam.mx.SGPF.model.Usuario;
 import unam.mx.SGPF.model.controller.InterUPJpaController;
 import unam.mx.SGPF.model.controller.ProyectoJpaController;
 
-/**
- *
- * @author jlope
- */
 public class actualizaRproyectO extends HttpServlet {
 
     @Override

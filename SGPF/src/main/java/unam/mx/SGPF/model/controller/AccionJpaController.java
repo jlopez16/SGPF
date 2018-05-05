@@ -19,10 +19,7 @@ import unam.mx.SGPF.model.Accion;
 import unam.mx.SGPF.model.controller.exceptions.IllegalOrphanException;
 import unam.mx.SGPF.model.controller.exceptions.NonexistentEntityException;
 
-/**
- *
- * @author miguel
- */
+
 public class AccionJpaController implements Serializable {
 
     public AccionJpaController(EntityManagerFactory emf) {
@@ -140,6 +137,7 @@ public class AccionJpaController implements Serializable {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
+                //Se debe colocar un mensaje de error de que la acción está siendo utilizada por un subproceso
                 illegalOrphanMessages.add("This Accion (" + accion + ") cannot be destroyed since the SubProceso " + subProcesoListOrphanCheckSubProceso + " in its subProcesoList field has a non-nullable idaccion field.");
             }
             if (illegalOrphanMessages != null) {
@@ -186,6 +184,7 @@ public class AccionJpaController implements Serializable {
             em.close();
         }
     }
+    
 
     public int getAccionCount() {
         EntityManager em = getEntityManager();

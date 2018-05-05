@@ -26,6 +26,7 @@
     	<table border="1">
     		<%
       		for (SubProceso inter : spList) {
+      			
     		%>
     		<tr>
     			<td><%=inter.getIdusuarioFuncional()%></td>

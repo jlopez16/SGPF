@@ -13,6 +13,7 @@
     %>
     <body>
         <h1>Proyectos</h1>
+        <a href="crudCatalogos.jsp"><input type="Submit" value="Modificar Catálogos"/></a>
 
         <table border="1">
             <%
@@ -26,10 +27,9 @@
             <%
                 }
             %>
-            <tr><td><a href="agregarProyecto.jsp">
-                        <input type="Submit" value="Agregar Nuevo Proyecto"/>
-                    </a>
-                </td></tr>
+            <tr>
+            	<td><a href="agregarProyecto.jsp"><input type="Submit" value="Agregar Nuevo Proyecto"/></a></td>
+            </tr>
         </table>
     </body>
 </html>

@@ -29,9 +29,12 @@ public class BuscaProcesoFuncional extends HttpServlet{
         session.setAttribute("pfDetalle", pfDetalle);
         ////
         
+        // Busca la lsita de los subprocesos
         SubProcesoJpaController spjpa = new SubProcesoJpaController(EntityProvider.provider());
         List<SubProceso> sp = spjpa.findSPByIdProcesoFuncional(idPf);
         session.setAttribute("subProc", sp);
+        //
+        
        
         response.sendRedirect("detallePF.jsp");
     }
