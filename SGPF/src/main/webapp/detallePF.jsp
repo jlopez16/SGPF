@@ -34,14 +34,13 @@
         <td><%=detalle.geteventoDes()%></td>
       </tr>
       <tr>
-      	<td><a href="modificaProyecto.jsp"><input type="submit" value="Modificar"/></a> </td>
-      	<form action="eliminarProyecto" method="post">
-      		<input type="submit" value="Eliminar"/>
+      	<form action="modificaPF" method="post">
+      		<input type="submit" value="Modificar"/>
       	</form>
       </tr>
     </table>
      <br>
-        <a href="modificaPF.jsp"><input type="submit" value="Modificar"/></a>
+        <%--<a href="modificaPF.jsp"><input type="submit" value="Modificar"/></a> --%>
     </div>
         <div>
         <h2>Lista de Actividades</h2>
