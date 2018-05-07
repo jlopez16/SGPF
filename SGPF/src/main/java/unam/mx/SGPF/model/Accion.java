@@ -42,7 +42,37 @@ public class Accion implements Serializable {
     private String nomAccion;
     @Column(nullable = false, length = 1)
     private String movDatos;
-    public String getMovDatos() {
+    @Column(nullable = false, length = 250)
+    private String descripcion;
+    @Column(nullable = false)
+    private short activo;
+    public Accion(Integer idaccion, String nomAccion, String movDatos, String descripcion, short activo,
+			List<SubProceso> subProcesoList) {
+		this.idaccion = idaccion;
+		this.nomAccion = nomAccion;
+		this.movDatos = movDatos;
+		this.descripcion = descripcion;
+		this.activo = activo;
+		this.subProcesoList = subProcesoList;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public short getActivo() {
+		return activo;
+	}
+
+	public void setActivo(short activo) {
+		this.activo = activo;
+	}
+
+	public String getMovDatos() {
 		return movDatos;
 	}
 

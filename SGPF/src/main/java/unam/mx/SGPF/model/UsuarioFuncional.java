@@ -43,7 +43,37 @@ public class UsuarioFuncional implements Serializable {
     @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String nomUF;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuarioFuncional")
+    @Column(nullable = false, length = 250)
+    private String descripcion;
+    @Column(nullable = false)
+    private short activo;
+    public UsuarioFuncional(Integer idusuarioFuncional, String nomUF, String descripcion, short activo,
+			List<SubProceso> subProcesoList) {
+		super();
+		this.idusuarioFuncional = idusuarioFuncional;
+		this.nomUF = nomUF;
+		this.descripcion = descripcion;
+		this.activo = activo;
+		this.subProcesoList = subProcesoList;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public short getActivo() {
+		return activo;
+	}
+
+	public void setActivo(short activo) {
+		this.activo = activo;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuarioFuncional")
     private List<SubProceso> subProcesoList;
 
     public UsuarioFuncional() {

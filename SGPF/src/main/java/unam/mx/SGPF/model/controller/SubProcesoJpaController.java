@@ -233,6 +233,15 @@ public class SubProcesoJpaController implements Serializable {
     			.setParameter("idPF", pf);
     	return q.getResultList();
     }
+    
+    public List<SubProceso> findSPByIDPForder(Integer idPF){
+    	EntityManager em = getEntityManager();
+    	ProcesoFuncional pf = new ProcesoFuncional(idPF);
+    	Query q = em.createNamedQuery("SubProceso.findSPByIDPForder")
+    			.setParameter("idPF", pf);
+    	return q.getResultList();
+    }
+    
 
     public SubProceso findSubProceso(Integer id) {
         EntityManager em = getEntityManager();

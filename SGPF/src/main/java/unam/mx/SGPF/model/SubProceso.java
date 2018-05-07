@@ -28,6 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "SubProceso.findByIdsubProceso", query = "SELECT s FROM SubProceso s WHERE s.idsubProceso = :idsubProceso")
     , @NamedQuery(name = "SubProceso.findByFlujoAl", query = "SELECT s FROM SubProceso s WHERE s.flujoAl = :flujoAl")
     , @NamedQuery(name = "SubProceso.findSPByIdProcesoFuncional", query = "SELECT s FROM SubProceso s WHERE s.idprocesoFuncional = :idPF")
+    , @NamedQuery(name = "SubProceso.findSPByIDPForder",query="select s from SubProceso s where s.idprocesoFuncional=:idPF group by s.actividad,s.indice,s.idusuarioFuncional,s.idaccion,s.idgrupoDato,s.descripcion,s.idsubProceso,s.flujoAl order by s.actividad,s.indice")
     , @NamedQuery(name = "SubProceso.findByDescripcion", query = "SELECT s FROM SubProceso s WHERE s.descripcion = :descripcion")})
 public class SubProceso implements Serializable {
 
@@ -40,7 +41,42 @@ public class SubProceso implements Serializable {
     private Short flujoAl;
     @Column(length = 250)
     private String descripcion;
-    @JoinColumn(name = "idaccion", referencedColumnName = "idaccion", nullable = false)
+    @Column(nullable = false, length = 45)
+    private String actividad;
+    @Column(nullable = false)
+    private Integer indice;
+    public SubProceso(Integer idsubProceso, Short flujoAl, String descripcion, String actividad, Integer indice,
+			Accion idaccion, GrupoDato idgrupoDato, ProcesoFuncional idprocesoFuncional,
+			UsuarioFuncional idusuarioFuncional) {
+		super();
+		this.idsubProceso = idsubProceso;
+		this.flujoAl = flujoAl;
+		this.descripcion = descripcion;
+		this.actividad = actividad;
+		this.indice = indice;
+		this.idaccion = idaccion;
+		this.idgrupoDato = idgrupoDato;
+		this.idprocesoFuncional = idprocesoFuncional;
+		this.idusuarioFuncional = idusuarioFuncional;
+	}
+
+	public String getActividad() {
+		return actividad;
+	}
+
+	public void setActividad(String actividad) {
+		this.actividad = actividad;
+	}
+
+	public Integer getIndice() {
+		return indice;
+	}
+
+	public void setIndice(Integer indice) {
+		this.indice = indice;
+	}
+
+	@JoinColumn(name = "idaccion", referencedColumnName = "idaccion", nullable = false)
     @ManyToOne(optional = false)
     private Accion idaccion;
     @JoinColumn(name = "idgrupoDato", referencedColumnName = "idgrupoDato", nullable = false)

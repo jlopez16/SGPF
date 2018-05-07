@@ -26,26 +26,26 @@ USE `SGPF` ;
 DROP TABLE IF EXISTS `SGPF`.`proyecto` ;
 
 CREATE TABLE IF NOT EXISTS `SGPF`.`proyecto` (
-  `idproyecto` INT NOT NULL auto_increment,
+  `idproyecto` INT NOT NULL AUTO_INCREMENT,
   `nomProy` VARCHAR(60) NOT NULL,
   `anioProy` VARCHAR(4) NOT NULL,
   `operProy` TINYINT NOT NULL,
-  `duraProy` INT NOT NULL,
-  `esfuTotProy` INT NOT NULL,
-  `esfuPlaneProy` INT NOT NULL,
-  `esfuEsReqProy` INT NOT NULL,
-  `esfuAnaDisProy` INT NOT NULL,
-  `esfuConstProy` INT NOT NULL,
-  `esfuPrueProy` INT NOT NULL,
-  `esfuImpleDesProy` INT NOT NULL,
-  `costTotProy` INT NOT NULL,
-  `costEsReqProy` INT NOT NULL,
-  `costAnaDisProy` INT NOT NULL,
-  `costConstProy` INT NOT NULL,
-  `costPrueProy` INT NOT NULL,
-  `costImpleDesProy` INT NOT NULL,
-  `tamFunProy` INT NOT NULL,
-  `fpAjusProy` INT NOT NULL,
+  `duraProy` DECIMAL(9,2) NOT NULL,
+  `esfuTotProy` DECIMAL(9,2) NOT NULL,
+  `esfuPlaneProy` DECIMAL(9,2) NOT NULL,
+  `esfuEsReqProy` DECIMAL(9,2) NOT NULL,
+  `esfuAnaDisProy` DECIMAL (9,2) NOT NULL,
+  `esfuConstProy` DECIMAL(9,2) NOT NULL,
+  `esfuPrueProy` DECIMAL(9,2) NOT NULL,
+  `esfuImpleDesProy` DECIMAL(9,2) NOT NULL,
+  `costTotProy` DECIMAL(9,2) NOT NULL,
+  `costEsReqProy` DECIMAL(9,2) NOT NULL,
+  `costAnaDisProy` DECIMAL(9,2) NOT NULL,
+  `costConstProy` DECIMAL(9,2) NOT NULL,
+  `costPrueProy` DECIMAL(9,2) NOT NULL,
+  `costImpleDesProy` DECIMAL(9,2) NOT NULL,
+  `tamFunProy` DECIMAL(9,2) NOT NULL,
+  `fpAjusProy` DECIMAL(9,2) NOT NULL,
   `medidorCertProy` TINYINT NOT NULL,
   `expeMedMetProy` INT NOT NULL,
   `usoCase` TINYINT NOT NULL,
@@ -69,6 +69,9 @@ CREATE TABLE IF NOT EXISTS `SGPF`.`proyecto` (
   `tamOrgUsa` VARCHAR(45) NOT NULL,
   `marcoPosUsa` VARCHAR(45) NOT NULL,
   `escala` VARCHAR(45) NOT NULL,
+  `capDes` VARCHAR(45) NOT NULL,
+  `proposito` VARCHAR(250) NOT NULL,
+  `alcance` VARCHAR(250) NOT NULL,
   PRIMARY KEY (`idproyecto`))
 ENGINE = InnoDB;
 
@@ -119,6 +122,8 @@ DROP TABLE IF EXISTS `SGPF`.`usuarioFuncional` ;
 CREATE TABLE IF NOT EXISTS `SGPF`.`usuarioFuncional` (
   `idusuarioFuncional` INT NOT NULL AUTO_INCREMENT,
   `nomUF` VARCHAR(45) NOT NULL,
+  `descripcion` VARCHAR(250) NOT NULL,
+  `activo` TINYINT NOT NULL,
   PRIMARY KEY (`idusuarioFuncional`))
 ENGINE = InnoDB;
 
@@ -132,6 +137,8 @@ CREATE TABLE IF NOT EXISTS `SGPF`.`accion` (
   `idaccion` INT NOT NULL AUTO_INCREMENT,
   `nomAccion` VARCHAR(45) NOT NULL,
   `movDatos` CHAR(1) NOT NULL,
+  `descripcion` VARCHAR(250) NOT NULL,
+  `activo` TINYINT NOT NULL,
   PRIMARY KEY (`idaccion`))
 ENGINE = InnoDB;
 
@@ -144,6 +151,8 @@ DROP TABLE IF EXISTS `SGPF`.`grupoDato` ;
 CREATE TABLE IF NOT EXISTS `SGPF`.`grupoDato` (
   `idgrupoDato` INT NOT NULL AUTO_INCREMENT,
   `nomGD` VARCHAR(45) NOT NULL,
+  `descripcion` VARCHAR (250) NOT NULL,
+  `activo` TINYINT NOT NULL,
   PRIMARY KEY (`idgrupoDato`))
 ENGINE = InnoDB;
 
@@ -161,6 +170,8 @@ CREATE TABLE IF NOT EXISTS `SGPF`.`subProceso` (
   `idaccion` INT NOT NULL,
   `idgrupoDato` INT NOT NULL,
   `idprocesoFuncional` INT NOT NULL,
+  `actividad` VARCHAR(45) NOT NULL,
+  `indice` INT NOT NULL,
   PRIMARY KEY (`idsubProceso`),
   INDEX `idusuarioFuncional_idx` (`idusuarioFuncional` ASC),
   INDEX `idaccion_idx` (`idaccion` ASC),
@@ -232,120 +243,56 @@ set foreign_key_checks = 0;
 --   WHERE idprocesoFuncional =new.idprocesoFuncional;
 -- END //
 
-INSERT INTO usuarioFuncional values(1,'Juan');
-insert into usuario (idusuario, nomUsuario, pwdUsuario) values (1, 'Olga', 'pass');
-insert into subProceso values(1,0,'prueba',1,1,1,1);
-INSERT INTO procesoFuncional VALUES (1,'nombre','desci','¿e',1,25);
 
-insert into proyecto (  idproyecto,
-  nomProy,
-  anioProy,
-  operProy,
-  duraProy,
-  esfuTotProy,
-  esfuPlaneProy,
-  esfuEsReqProy,
-  esfuAnaDisProy,
-  esfuConstProy,
-  esfuPrueProy,
-  esfuImpleDesProy,
-  costTotProy,
-  costEsReqProy,
-  costAnaDisProy,
-  costConstProy,
-  costPrueProy,
-  costImpleDesProy,
-  tamFunProy,
-  fpAjusProy,
-  medidorCertProy,
-  expeMedMetProy,
-  usoCase,
-  certModelo,
-  comCertModelo,
-  costPlanProy,
-  confInfo,
-  arqProyecto,
-  metDesarrollo,
-  metMedicion,
-  sisOpe,
-  tipoDesarrollo,
-  lenguaje,
-  modCalidad,
-  baseDatos,
-  secOrg,
-  estatus,
-  tipoOrg,
-  tipoCapOrg,
-  tamOrgDes,
-  tamOrgUsa,
-  marcoPosUsa,
-  escala)
-values
-(1, 'proyecto 1', '1990', true, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, true, 10, true, false, 'foo', 12.0, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', false, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg');
+insert into usuario (nomUsuario, pwdUsuario,usuTipo1) values ('Olga', 'pass',true);
+insert into usuario (nomUsuario, pwdUsuario,usuTipo2) values ('Juan', 'pass',true);
 
-insert into proyecto (  idproyecto,
-  nomProy,
-  anioProy,
-  operProy,
-  duraProy,
-  esfuTotProy,
-  esfuPlaneProy,
-  esfuEsReqProy,
-  esfuAnaDisProy,
-  esfuConstProy,
-  esfuPrueProy,
-  esfuImpleDesProy,
-  costTotProy,
-  costEsReqProy,
-  costAnaDisProy,
-  costConstProy,
-  costPrueProy,
-  costImpleDesProy,
-  tamFunProy,
-  fpAjusProy,
-  medidorCertProy,
-  expeMedMetProy,
-  usoCase,
-  certModelo,
-  comCertModelo,
-  costPlanProy,
-  confInfo,
-  arqProyecto,
-  metDesarrollo,
-  metMedicion,
-  sisOpe,
-  tipoDesarrollo,
-  lenguaje,
-  modCalidad,
-  baseDatos,
-  secOrg,
-  estatus,
-  tipoOrg,
-  tipoCapOrg,
-  tamOrgDes,
-  tamOrgUsa,
-  marcoPosUsa,
-  escala)
+insert into proyecto (nomProy,anioProy,operProy,duraProy,esfuTotProy,esfuPlaneProy,esfuEsReqProy,esfuAnaDisProy,
+  esfuConstProy,esfuPrueProy,esfuImpleDesProy,costTotProy,costEsReqProy,costAnaDisProy,costConstProy,costPrueProy,
+  costImpleDesProy,tamFunProy,fpAjusProy,medidorCertProy,expeMedMetProy,usoCase,certModelo,comCertModelo,
+  costPlanProy,confInfo,arqProyecto,metDesarrollo,metMedicion,sisOpe,tipoDesarrollo,lenguaje,
+  modCalidad,baseDatos,secOrg,estatus,tipoOrg,tipoCapOrg,tamOrgDes,
+  tamOrgUsa,marcoPosUsa,escala,capDes,proposito,alcance)
 values
-(2, 'proyecto 2', '1993', true, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, true, 10, true, false, 'foo', 12.0, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', false, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg');
+('C-Reg', '1993', true, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+true, 10, true, false, 'foo', 12.0, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg',
+ 'abcdef', 'abcdefg', false, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdefg', 'abcdef', 'abcdefg');
+ insert into proyecto (nomProy,anioProy,operProy,duraProy,esfuTotProy,esfuPlaneProy,esfuEsReqProy,esfuAnaDisProy,
+   esfuConstProy,esfuPrueProy,esfuImpleDesProy,costTotProy,costEsReqProy,costAnaDisProy,costConstProy,costPrueProy,
+   costImpleDesProy,tamFunProy,fpAjusProy,medidorCertProy,expeMedMetProy,usoCase,certModelo,comCertModelo,
+   costPlanProy,confInfo,arqProyecto,metDesarrollo,metMedicion,sisOpe,tipoDesarrollo,lenguaje,
+   modCalidad,baseDatos,secOrg,estatus,tipoOrg,tipoCapOrg,tamOrgDes,
+   tamOrgUsa,marcoPosUsa,escala,capDes,proposito,alcance)
+ values
+ ('SGPF', '1993', true, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+ true, 10, true, false, 'foo', 12.0, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg',
+  'abcdef', 'abcdefg', false, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdefg', 'abcdef', 'abcdefg');
 
 insert into interUP (idusuario, idproyecto) values (1, 1);
 insert into interUP (idusuario, idproyecto) values (1, 2);
+insert into interUP (idusuario, idproyecto) values (2, 2);
 
 insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenante',2,0);
-
 insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenenante',2,0);
 
-insert into accion (nomAccion,movDatos) values ('ingresa','E');
-insert into accion (nomAccion,movDatos) values ('despliega','X');
+insert into accion (nomAccion,movDatos,descripcion,activo) values ('ingresa','E','entrada de datos',true);
+insert into accion (nomAccion,movDatos,descripcion,activo) values ('envia','X','envia de datos',true);
+insert into accion (nomAccion,movDatos,descripcion,activo) values ('solicita','R','pide de datos',false);
 
-insert into grupoDato (nomGD) values ('estudiante');
+insert into grupoDato (nomGD,descripcion,activo) values ('estudiante','Estudiante del IIMAS',true);
+insert into usuarioFuncional (nomUF,descripcion,activo) values ('Registrador','Registrador del IIMAS',true);
 
-insert into usuarioFuncional (nomUF) values ('Registrador');
-insert into usuarioFuncional (nomUF) values ('C-Reg');
+insert into usuarioFuncional (nomUF,descripcion,activo) values ('C-Reg','Sistema C-Reg',true);
+insert into usuarioFuncional (nomUF,descripcion,activo) values ('Registrador','Registrador C-Reg',true);
 
-insert into subProceso (flujoAl,descripcion, idusuarioFuncional,idaccion,idgrupoDato,idprocesoFuncional) values (0,'los datos de',2,1,1,2);
-
+insert into subProceso (flujoAl,descripcion, idusuarioFuncional,idaccion,idgrupoDato,idprocesoFuncional,actividad,indice)
+values (0,'los datos de',2,1,1,2,'Inicio de PF',1);
+insert into subProceso (flujoAl,descripcion, idusuarioFuncional,idaccion,idgrupoDato,idprocesoFuncional,actividad,indice)
+values (0,'los datos de',2,1,1,2,'Inicio de PF',2);
+insert into subProceso (flujoAl,descripcion, idusuarioFuncional,idaccion,idgrupoDato,idprocesoFuncional,actividad,indice)
+values (0,'los datos de',2,1,1,2,'Valida',1);
+insert into subProceso (flujoAl,descripcion, idusuarioFuncional,idaccion,idgrupoDato,idprocesoFuncional,actividad,indice)
+values (0,'los datos de',2,1,1,2,'Valida',2);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

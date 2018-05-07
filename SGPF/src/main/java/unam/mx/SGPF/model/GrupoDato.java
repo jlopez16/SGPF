@@ -21,10 +21,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author miguel
- */
+
 @Entity
 @Table(catalog = "SGPF", schema = "")
 @XmlRootElement
@@ -43,7 +40,37 @@ public class GrupoDato implements Serializable {
     @Basic(optional = false)
     @Column(nullable = false, length = 45)
     private String nomGD;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idgrupoDato")
+    @Column(nullable = false, length = 250)
+    private String descripcion;
+    public GrupoDato(Integer idgrupoDato, String nomGD, String descripcion, short activo,
+			List<SubProceso> subProcesoList) {
+		super();
+		this.idgrupoDato = idgrupoDato;
+		this.nomGD = nomGD;
+		this.descripcion = descripcion;
+		this.activo = activo;
+		this.subProcesoList = subProcesoList;
+	}
+
+	@Column(nullable = false)
+    private short activo;
+    public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public short getActivo() {
+		return activo;
+	}
+
+	public void setActivo(short activo) {
+		this.activo = activo;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "idgrupoDato")
     private List<SubProceso> subProcesoList;
 
     public GrupoDato() {

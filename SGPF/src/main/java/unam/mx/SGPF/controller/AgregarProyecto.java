@@ -62,7 +62,8 @@ public class AgregarProyecto extends HttpServlet {
         ProyectoJpaController pjpa = new ProyectoJpaController(EntityProvider.provider());
         short a = 1;
         BigDecimal big = new BigDecimal(0.24);
-        Proyecto newProyecto = new Proyecto(nombreProy, "2015", a, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, a, 1, a, a, nombreProy, big, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, a, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy);
+       
+        Proyecto newProyecto = new Proyecto(nombreProy, "2015", a, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, big, a, 1, a, a, nombreProy, big, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, a, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy, nombreProy);
         try {
             pjpa.create(newProyecto);
             // FIXME: Esta evaluación monousuario y no considera los problemas de concurrencia.
