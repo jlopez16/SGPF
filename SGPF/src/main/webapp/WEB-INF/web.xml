@@ -37,6 +37,14 @@
         <servlet-name>EliminaAccion</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.EliminaAccion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>agregandoActividad</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.agregandoActividad</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>agregandoActividad</servlet-name>
+        <url-pattern>/agregandoActividad</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EliminaAccion</servlet-name>
         <url-pattern>/EliminaAccion</url-pattern>
