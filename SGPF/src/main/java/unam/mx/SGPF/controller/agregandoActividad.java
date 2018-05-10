@@ -32,17 +32,22 @@ public class agregandoActividad extends HttpServlet {
         int idAccion = Integer.parseInt(request.getParameter("accion"));
         int idGrupoDatos = Integer.parseInt(request.getParameter("grupoDatos"));
         String flujoAl_ = request.getParameter("flujoAl");
-        
-        //OBTENER EL OBJETO PF PARA OBTENER IDPROY
+        SubProcesoJpaController subPjpa = new SubProcesoJpaController(EntityProvider.provider());
         HttpSession session = request.getSession(true);
+        ProcesoFuncional PF = (ProcesoFuncional) session.getAttribute("pfDetalle");
+        if(!subPjpa.findSPByActividadyIdPF(NombreActividad,PF.getIdprocesoFuncional()).isEmpty())
+            redireccion = "e_ExisteActividad.jsp";
+    
+        //OBTENER EL OBJETO PF PARA OBTENER IDPROY
         ProcesoFuncional detalle = (ProcesoFuncional) session.getAttribute("pfDetalle");
+        
+        
 
         SubProceso aux = new SubProceso();
         aux.setActividad(NombreActividad);
         aux.setDescripcion(descripcionActividad);
         aux.setIdprocesoFuncional(detalle);
         
-        SubProcesoJpaController subPjpa = new SubProcesoJpaController(EntityProvider.provider());
         List<SubProceso> subProceso = subPjpa.findSPByActividad(NombreActividad);
         if(subProceso.size()==0)
             aux.setIndice(1);
@@ -66,21 +71,23 @@ public class agregandoActividad extends HttpServlet {
         aux.setIdgrupoDato(MiGrupoDato);
         
         try {
-            subPjpa.create(aux);
+            if(redireccion.isEmpty())
+                subPjpa.create(aux);
         } catch (Exception e) {
             redireccion = "addActividad.jsp";
             return;
         } finally {
-            redireccion = "detallePF.jsp";
-            ProcesoFuncional PF = (ProcesoFuncional) session.getAttribute("pfDetalle");
+            if(redireccion.isEmpty()){
+                redireccion = "detallePF.jsp";
         
-            ProcesoFuncionalJpaController pfjpa = new ProcesoFuncionalJpaController(EntityProvider.provider());
-            ProcesoFuncional pfDetalle = pfjpa.findProcesoFuncional(PF.getIdprocesoFuncional());
-            session.setAttribute("pfDetalle", pfDetalle);
-        
-            SubProcesoJpaController spjpa = new SubProcesoJpaController(EntityProvider.provider());
-            List<SubProceso> sp = spjpa.findSPByIDPForder(PF.getIdprocesoFuncional());
-            session.setAttribute("subProc", sp);
+                ProcesoFuncionalJpaController pfjpa = new ProcesoFuncionalJpaController(EntityProvider.provider());
+                ProcesoFuncional pfDetalle = pfjpa.findProcesoFuncional(PF.getIdprocesoFuncional());
+                session.setAttribute("pfDetalle", pfDetalle);
+
+                SubProcesoJpaController spjpa = new SubProcesoJpaController(EntityProvider.provider());
+                List<SubProceso> sp = spjpa.findSPByIDPForder(PF.getIdprocesoFuncional());
+                session.setAttribute("subProc", sp);
+            }
             response.sendRedirect(redireccion);
         }
     }

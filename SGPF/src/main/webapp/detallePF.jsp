@@ -58,18 +58,34 @@
       			gd=inter.getIdgrupoDato();
     		%>
     		<tr><%if(inter.getIndice()==1){ %>
-    			<td><%=inter.getActividad()%></td>
+                        <td bgcolor="#FF0000"><%=inter.getIdsubProceso()%></td>
+                        <td><%=inter.getActividad()%></td>
     			<td><%=uf.getNomUF()%></td>
     			<td><%=acc.getNomAccion()%></td>
         		<td><%=inter.getDescripcion()%></td>
         		<td><%=gd.getNomGD()%></td>
         		<td>
-        			<a href="modActividad"><input type="submit" value="Modificar Actividad"/></a>
-        			<a href="addSubProceso"><input type="submit" value="Agregar Subproceso"/></a>
-        			<a href="eliActividad"><input type="submit" value="Eliminar Actividad" /></a>
+        			<form action="modActividad" method ="POST">
+                                    <input type="hidden" name="idSubProceso" value="<%=inter.getIdsubProceso()%>"/>
+                                    <input type="submit" value="Modificar Actividad"/>
+                                </form>
+        			<form action="addSubProceso" method="POST">
+                                    <input type="hidden" name="idSubProceso" value="<%=inter.getIdsubProceso()%>"/>
+                                    <input type="submit" value="Agregar Subproceso"/>
+                                </form>
+                                <% if(inter.getActividad()=="Inicio de Proceso Funcional" && inter.getIndice()==1){
+                                %>
+                                <form action="eliActividad" method="POST">
+                                    <input type="hidden" name="idSubProceso" value="<%=inter.getIdsubProceso()%>"/>
+                                    <input type="submit" value="Eliminar Actividad" />
+                                </form>
+                                <%
+                                }
+                                %>
         		</td> 
         		<% }else{%>
-        		<td></td>
+                        <td bgcolor="#FF0000"><%=inter.getIdsubProceso()%></td>
+                        <td bgcolor="#FF0000"><%=inter.getActividad()%></td>
     			<td><%=uf.getNomUF()%></td>
     			<td><%=acc.getNomAccion()%></td>
         		<td><%=inter.getDescripcion()%></td>

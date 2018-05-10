@@ -21,13 +21,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @Entity
-@Table(catalog = "SGPF", schema = "")
+@Table(name="SubProceso")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "SubProceso.findAll", query = "SELECT s FROM SubProceso s")
     , @NamedQuery(name = "SubProceso.findByIdsubProceso", query = "SELECT s FROM SubProceso s WHERE s.idsubProceso = :idsubProceso")
     , @NamedQuery(name = "SubProceso.findByFlujoAl", query = "SELECT s FROM SubProceso s WHERE s.flujoAl = :flujoAl")
     , @NamedQuery(name = "SubProceso.findSPByIdProcesoFuncional", query = "SELECT s FROM SubProceso s WHERE s.idprocesoFuncional = :idPF")
+    , @NamedQuery(name = "SubProceso.findSPByActividadyIdPF", query="SELECT s FROM SubProceso s WHERE s.idprocesoFuncional = :idprocesoFuncional AND s.actividad = :actividad")
     , @NamedQuery(name = "SubProceso.findSPByIDPForder",query="select s from SubProceso s where s.idprocesoFuncional=:idPF group by s.actividad,s.indice,s.idusuarioFuncional,s.idaccion,s.idgrupoDato,s.descripcion,s.idsubProceso,s.flujoAl order by s.actividad,s.indice")
     , @NamedQuery(name = "SubProceso.findSPByActividad", query="SELECT s FROM SubProceso s where s.actividad = :actividad")
     , @NamedQuery(name = "SubProceso.findByDescripcion", query = "SELECT s FROM SubProceso s WHERE s.descripcion = :descripcion")})
@@ -76,6 +77,11 @@ public class SubProceso implements Serializable {
 	public void setIndice(Integer indice) {
 		this.indice = indice;
 	}
+     
+    public SubProceso(String actividad) {
+		this.actividad = actividad;
+	}
+
 
 	@JoinColumn(name = "idaccion", referencedColumnName = "idaccion", nullable = false)
     @ManyToOne(optional = false)

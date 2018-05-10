@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unam.mx.SGPF.model.controller;
 
 import java.io.Serializable;
@@ -233,6 +228,15 @@ public class SubProcesoJpaController implements Serializable {
     			.setParameter("idPF", pf);
     	return q.getResultList();
     }
+    
+    public List<SubProceso> findSPByActividadyIdPF(String NombreActividad, Integer idPF){
+    	EntityManager em = getEntityManager();
+    	ProcesoFuncional pf = new ProcesoFuncional(idPF);
+    	Query q = em.createNamedQuery("SubProceso.findSPByActividadyIdPF")
+    			.setParameter("idprocesoFuncional", pf).setParameter("actividad", NombreActividad);
+    	return q.getResultList();
+    }
+    
     
     public List<SubProceso> findSPByActividad(String actividad){
     	EntityManager em = getEntityManager();

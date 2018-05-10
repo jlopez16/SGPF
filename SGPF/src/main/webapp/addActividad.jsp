@@ -3,7 +3,10 @@
 <%@page import="unam.mx.SGPF.model.Accion"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
-<!DOCTYPE html>
+<!-- 
+Falta que al agregar sólo lo hahrá en caso de que no exista ya el NOMBRE DE LA
+ACTIVIDAD CON EL PF, de no ser así mandar ERROR.
+-->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

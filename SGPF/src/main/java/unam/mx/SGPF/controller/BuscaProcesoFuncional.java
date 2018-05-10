@@ -24,8 +24,43 @@ public class BuscaProcesoFuncional extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-    	Integer idPf= Integer.parseInt(request.getParameter("idprocesoFuncional"));
+    	Integer idPf= Integer.parseInt(request.getParameter("idprocesoFuncional"));    	
     	
+        HttpSession session = request.getSession(true);
+        
+        ////////
+    	ProcesoFuncionalJpaController pfjpa = new ProcesoFuncionalJpaController(EntityProvider.provider());
+        ProcesoFuncional pfDetalle = pfjpa.findProcesoFuncional(idPf);
+        session.setAttribute("pfDetalle", pfDetalle);
+        ////
+        
+        // Busca la lsita de los subprocesos
+        SubProcesoJpaController spjpa = new SubProcesoJpaController(EntityProvider.provider());
+        //List<SubProceso> sp = spjpa.findSPByIdProcesoFuncional(idPf);
+        List<SubProceso> sp = spjpa.findSPByIDPForder(idPf);
+        session.setAttribute("subProc", sp);
+        //
+       
+        UsuarioFuncionalJpaController ufjpa = new UsuarioFuncionalJpaController(EntityProvider.provider());
+        List<UsuarioFuncional> uf = (List<UsuarioFuncional>) ufjpa.findUsuarioFuncionalEntities();
+        session.setAttribute("ufCatalogo", uf);
+        
+        AccionJpaController juano = new AccionJpaController(EntityProvider.provider());
+        List<Accion> accion = (List<Accion>) juano.findAccionEntities();
+        session.setAttribute("accCatalogo", accion);
+
+        GrupoDatoJpaController gruposDatos = new GrupoDatoJpaController(EntityProvider.provider());
+        List<GrupoDato> grupoDatos = (List<GrupoDato>) gruposDatos.findGrupoDatoEntities();
+        session.setAttribute("grupoDatosCatalogo", grupoDatos);
+        
+        response.sendRedirect("detallePF.jsp");
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    	
+    	Integer idPf= Integer.parseInt(request.getParameter("idprocesoFuncional"));    	
     	
         HttpSession session = request.getSession(true);
         

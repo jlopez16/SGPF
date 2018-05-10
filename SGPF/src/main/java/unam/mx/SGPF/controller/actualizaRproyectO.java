@@ -29,7 +29,7 @@ public class actualizaRproyectO extends HttpServlet {
         String redireccion = "";
         String nombreProy = request.getParameter("nombreProyecto");
         int idProy = Integer.parseInt(request.getParameter("idProyecto"));
-        System.out.println("Get parameter = " + request.getParameter("idProyecto") + " y id es: " + idProy);
+        //System.out.println("Get parameter = " + request.getParameter("idProyecto") + " y id es: " + idProy);
         HttpSession session = request.getSession(true);
         Usuario u = (Usuario) session.getAttribute("usuario");
 

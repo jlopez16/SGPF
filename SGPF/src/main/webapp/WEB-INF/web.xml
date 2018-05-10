@@ -25,10 +25,22 @@
         <servlet-name>AgregarProyecto</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.AgregarProyecto</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>acciones</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.acciones</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>modActividad</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.modActividad</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificandoActividad</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.modificandoActividad</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>modificandoActividad</servlet-name>
+        <url-pattern>/modificandoActividad</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>acciones</servlet-name>
         <url-pattern>/acciones</url-pattern>
@@ -72,5 +84,9 @@
     <servlet-mapping>
         <servlet-name>AgregarProyecto</servlet-name>
         <url-pattern>/AgregarProyecto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modActividad</servlet-name>
+        <url-pattern>/modActividad</url-pattern>
     </servlet-mapping>
 </web-app>
