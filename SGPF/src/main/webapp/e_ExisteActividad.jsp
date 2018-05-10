@@ -7,5 +7,6 @@
     </head>
     <body>
         <h1>Ya existe una actividad con ese nombre!</h1>
+        <a href="detallePF.jsp"><input type="submit" value="Regresar"/></a>
     </body>
 </html>
