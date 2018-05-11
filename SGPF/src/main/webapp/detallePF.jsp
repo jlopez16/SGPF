@@ -34,9 +34,9 @@
         <td><%=detalle.geteventoDes()%></td>
       </tr>
       <tr>
-      	<form action="modificaPF" method="post">
-      		<input type="submit" value="Modificar"/>
-      	</form>
+      <a href="modifyPF.jsp">
+        <input type="submit" value="Modificar"/>
+      </a>
       </tr>
     </table>
      <br>
