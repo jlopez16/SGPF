@@ -38,7 +38,6 @@ public class agregandoSubProceso extends HttpServlet{
            
         SubProceso aux = new SubProceso();
         aux.setActividad(NombreActividad);
-        System.out.println("El nombre de la actividad es >> "+aux.getActividad());
         aux.setDescripcion(descripcionActividad);
         aux.setIdprocesoFuncional(PF);
         

@@ -45,6 +45,22 @@
         <servlet-name>agregandoSubProceso</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.agregandoSubProceso</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>eliSubproceso</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.eliSubproceso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminandoSubProceso</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.eliminandoSubProceso</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>eliminandoSubProceso</servlet-name>
+        <url-pattern>/eliminandoSubProceso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliSubproceso</servlet-name>
+        <url-pattern>/eliSubproceso</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>agregandoSubProceso</servlet-name>
         <url-pattern>/agregandoSubProceso</url-pattern>

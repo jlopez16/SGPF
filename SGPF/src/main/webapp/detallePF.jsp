@@ -91,7 +91,10 @@
         		<td><%=inter.getDescripcion()%></td>
         		<td><%=gd.getNomGD()%></td>
         		<td>
-        			<a href="eliSubproceso"><input type="submit" value="Eliminar"/></a>
+                                <form action="eliSubproceso" method="POST">
+                                    <input type="hidden" name="idSubProceso" value="<%=inter.getIdsubProceso()%>"/>
+                                    <input type="submit" value="Eliminar" />
+                                </form>
         		</td>
         		<%} %>
      		</tr>
