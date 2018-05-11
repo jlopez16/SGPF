@@ -103,10 +103,8 @@
     		%>
      	</table>
         </div>
-        
-        
-        
-       
-        
+        <div>
+            <a href="detalleProyecto.jsp"><input type="submit" value="Back to Project"></a>
+        </div>
     </body>
 </html>

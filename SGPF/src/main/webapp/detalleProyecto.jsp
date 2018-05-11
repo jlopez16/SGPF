@@ -54,9 +54,8 @@
     %>
     
      </table>
-
-
-
-
+    <br>
+    <br>
+    <a href="proyectos.jsp"><input type="submit" value="Back to Projects"</a>
   </body>
 </html>
