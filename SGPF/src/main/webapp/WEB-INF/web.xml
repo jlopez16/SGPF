@@ -37,6 +37,22 @@
         <servlet-name>modificandoActividad</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.modificandoActividad</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addSubProceso</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.addSubProceso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregandoSubProceso</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.agregandoSubProceso</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>agregandoSubProceso</servlet-name>
+        <url-pattern>/agregandoSubProceso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addSubProceso</servlet-name>
+        <url-pattern>/addSubProceso</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>modificandoActividad</servlet-name>
         <url-pattern>/modificandoActividad</url-pattern>
