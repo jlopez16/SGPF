@@ -50,7 +50,7 @@ public class actualizaRproyectO extends HttpServlet {
             redireccion = "modificaProyecto.jsp";
             return;
         } finally {
-            redireccion = "proyectos.jsp";
+            redireccion = "BuscaProyecto?idProyecto="+idProy;
             response.sendRedirect(redireccion);
         }
     }

@@ -10,19 +10,29 @@
         <%
   	 Proyecto p = (Proyecto) session.getAttribute("proy");
          %>
-        <h1>Hello World!</h1>
+        <h1>Modifica el Proyecto</h1>
         <form action="actualizaRproyectO" method="POST">
             <table>
             <tr>
-                <td>Id: </td><td><input type="text" value="<%=p.getIdproyecto()%>" name="idProyecto"> </td>
+                <td>Id: </td><td>
+                    <input type="hidden" name="idProyecto" value="<%=p.getIdproyecto()%>">
+                    <%=p.getIdproyecto()%></td>
             </tr>    
             <tr>
-                <td>Nombre: </td><td><input type="text" value="<%=p.getNomProy()%>" name="nombreProyecto"> </td>
+                <td>Nombre: </td>
+                <td><input type="text" name="nombreProyecto" value="<%=p.getNomProy()%>"> </td>
             </tr>
+            
             <tr>
-                <td><input type="submit" value="SavE"/></td><td></td>
+                <td><input type="submit" value="Guardar"/></td><td></td></form>
+            <td>
+                <form action="BuscaProyecto" method="POST">
+                    <input type="hidden" name="idProyecto" value="<%=p.getIdproyecto()%>">
+                    <input type="submit" value="Cancelar">
+                </form>
+            </td>
             </tr>
         </table>
-        </form>
+        
     </body>
 </html>

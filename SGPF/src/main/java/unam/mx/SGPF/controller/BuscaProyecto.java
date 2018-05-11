@@ -23,16 +23,28 @@ import unam.mx.SGPF.model.controller.ProyectoJpaController;
 
 public class BuscaProyecto extends HttpServlet {
 
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    	
+    	Integer idProyecto = Integer.parseInt(request.getParameter("idProyecto"));
+    	ProyectoJpaController pjpa = new ProyectoJpaController(EntityProvider.provider());
+    	Proyecto p = pjpa.findProyecto(idProyecto);
+    	
+        HttpSession session = request.getSession(true);
+        
+        ////////
+    	ProcesoFuncionalJpaController pfjpa = new ProcesoFuncionalJpaController(EntityProvider.provider());
+    	List<ProcesoFuncional> pf = pfjpa.findPFByIdProyecto(idProyecto);
+        session.setAttribute("procFunc", pf);
+        ////
+        
+        session.setAttribute("proy", p);
+        response.sendRedirect("detalleProyecto.jsp");
+    }
+   
+   @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
     	Integer idProyecto = Integer.parseInt(request.getParameter("idProyecto"));
