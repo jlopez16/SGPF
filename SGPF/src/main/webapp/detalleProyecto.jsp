@@ -15,9 +15,8 @@
 
   <body>
     <h1>Detalle proyecto</h1>
-	<table border="1">
-
-    <tr>
+    <table border="1">
+      <tr>
         <td>Nombre Proyecto:</td>
         <td><%=p.getNomProy()%></td>
       </tr>

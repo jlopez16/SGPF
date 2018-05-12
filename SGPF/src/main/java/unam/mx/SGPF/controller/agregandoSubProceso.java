@@ -24,7 +24,6 @@ public class agregandoSubProceso extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String redireccion = "";
         String NombreActividad = request.getParameter("actividad");
         String descripcionActividad = request.getParameter("descripcion");
@@ -41,7 +40,7 @@ public class agregandoSubProceso extends HttpServlet{
         aux.setDescripcion(descripcionActividad);
         aux.setIdprocesoFuncional(PF);
         
-        List<SubProceso> subProceso = subPjpa.findSPByActividad(NombreActividad);
+        List<SubProceso> subProceso = subPjpa.findSPByActividadyPF(NombreActividad, PF);
         aux.setIndice(subProceso.size()+1);
         short b = 0;
         if (flujoAl_==null)

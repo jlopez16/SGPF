@@ -16,9 +16,8 @@
     <div>
     	<%
      	ProcesoFuncional detalle = (ProcesoFuncional) session.getAttribute("pfDetalle");
-        List<SubProceso> spList = (List<SubProceso>) session.getAttribute("subProc");
-
-  		%>
+        List<SubProceso> spList = (List<SubProceso>) session.getAttribute("subProc"); 
+        %>
         <h1>Detalle de Proceso Funcional</h1>
         <table border="1">
     	<tr>
@@ -45,7 +44,10 @@
         <div>
         <h2>Lista de Actividades</h2>
         <br>
-        <a href="addActividad.jsp"><input type="submit" value="Agregar Actividad"/></a>
+        <form action="agregarActividad" method="post">
+            <input type="hidden" name="idProcesoFuncional" value="<%=detalle.getIdprocesoFuncional()%>">
+            <input type="submit" value="Agregar Actividad"/>
+        </form>
         <br>
     	<table border="1">
     		<%

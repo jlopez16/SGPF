@@ -19,7 +19,6 @@ public class agregarPF extends HttpServlet{
 	            throws ServletException, IOException { 
              
 		String nombrePF = request.getParameter("nombrePF");
-                System.out.println("nombrePF >> "+nombrePF);
                 String descripcioPF = request.getParameter("descripcioPF");
                 String eventoDes = request.getParameter("eventoDes");
 	    	Integer idProyecto = Integer.parseInt(request.getParameter("idProyecto"));

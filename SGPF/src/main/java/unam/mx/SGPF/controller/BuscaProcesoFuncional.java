@@ -75,7 +75,6 @@ public class BuscaProcesoFuncional extends HttpServlet{
         //List<SubProceso> sp = spjpa.findSPByIdProcesoFuncional(idPf);
         List<SubProceso> sp = spjpa.findSPByIDPForder(idPf);
         session.setAttribute("subProc", sp);
-        //
        
         UsuarioFuncionalJpaController ufjpa = new UsuarioFuncionalJpaController(EntityProvider.provider());
         List<UsuarioFuncional> uf = (List<UsuarioFuncional>) ufjpa.findUsuarioFuncionalEntities();
@@ -88,6 +87,7 @@ public class BuscaProcesoFuncional extends HttpServlet{
         GrupoDatoJpaController gruposDatos = new GrupoDatoJpaController(EntityProvider.provider());
         List<GrupoDato> grupoDatos = (List<GrupoDato>) gruposDatos.findGrupoDatoEntities();
         session.setAttribute("grupoDatosCatalogo", grupoDatos);
+       
         
         response.sendRedirect("detallePF.jsp");
     }

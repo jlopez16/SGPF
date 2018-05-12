@@ -57,6 +57,14 @@
         <servlet-name>agregarPF</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.agregarPF</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>agregarActividad</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.agregarActividad</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>agregarActividad</servlet-name>
+        <url-pattern>/agregarActividad</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>agregarPF</servlet-name>
         <url-pattern>/agregarPF</url-pattern>

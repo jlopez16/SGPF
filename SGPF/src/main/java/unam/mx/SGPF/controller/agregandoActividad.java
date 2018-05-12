@@ -48,11 +48,9 @@ public class agregandoActividad extends HttpServlet {
         aux.setDescripcion(descripcionActividad);
         aux.setIdprocesoFuncional(detalle);
         
-        List<SubProceso> subProceso = subPjpa.findSPByActividad(NombreActividad);
-        if(subProceso.size()==0)
-            aux.setIndice(1);
-        else
-            aux.setIndice(subProceso.size()+1);
+        List<SubProceso> subProceso = subPjpa.findSPByActividadyPF(NombreActividad,detalle);
+        aux.setIndice(subProceso.size()+1);
+            
         short b = 0;
         if (flujoAl_==null)
             b=1;
