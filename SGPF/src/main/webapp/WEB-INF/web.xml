@@ -53,6 +53,14 @@
         <servlet-name>eliminandoSubProceso</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.eliminandoSubProceso</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>agregarPF</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.agregarPF</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>agregarPF</servlet-name>
+        <url-pattern>/agregarPF</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>eliminandoSubProceso</servlet-name>
         <url-pattern>/eliminandoSubProceso</url-pattern>

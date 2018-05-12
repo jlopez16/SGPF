@@ -38,6 +38,14 @@
     </table>
     <br>
     <h1>Procesos funcionales relacionados al Proyecto</h1>
+    <br><br>
+    <!--<form action="agregarPF" method="POST">-->
+        <!--<input type="hidden" name="idPF" value="<%=p.getIdproyecto()%>">-->
+    <a href="agregaPF.jsp">
+        <input type="submit" value="Agregar PF">
+    </a>
+        
+    <!--</form>-->
     <br>
     <table border="1">
     <%
