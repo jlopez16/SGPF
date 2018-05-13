@@ -26,4 +26,16 @@ public class acciones extends HttpServlet{
 		
 		response.sendRedirect("acciones.jsp");
 	}
+        
+        @Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(true);
+		
+		AccionJpaController ajpa = new AccionJpaController(EntityProvider.provider());
+		List<Accion> ac = ajpa.findAccionEntities();
+		session.setAttribute("action",ac);
+		
+		response.sendRedirect("acciones.jsp");
+	}
 }

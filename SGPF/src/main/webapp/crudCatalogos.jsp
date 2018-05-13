@@ -12,6 +12,9 @@
       <tr>
          <td><form action="grupoDatos" method="post"><input type="Submit" value="Grupo de Datos"/></form></td>
       </tr>
+      <tr>
+          <td><a href="proyectos.jsp"><input type="submit" value="Regresar"></a></td>
+      </tr>
           
   </table>
 

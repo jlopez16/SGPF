@@ -22,17 +22,25 @@ public class EliminaAccion extends HttpServlet {
 	    	Integer idAccion = Integer.parseInt(request.getParameter("idAccion"));
 	    	
 	    	AccionJpaController ajpa = new AccionJpaController(EntityProvider.provider());
-	    	//Accion ac = ajpa.findAccion(idAccion);
+	    	Accion ac = ajpa.findAccion(idAccion);
+                short a=1;
+                if(ac.getActivo()==0)
+                    ac.setActivo(a);
+                else{
+                    a=0;
+                    ac.setActivo(a);
+                }
+                
 	    	try {
-	    		ajpa.destroy(idAccion);
+	    		ajpa.edit(ac);
 	    	}catch(Exception e) {
 	    		e.printStackTrace();
 	    		//Aqui debe mandar un mensaje de error 
 	    	}
 	    	HttpSession session = request.getSession(true);
 			
-			List<Accion> ac = ajpa.findAccionEntities();
-			session.setAttribute("action",ac);
+			List<Accion> acc = ajpa.findAccionEntities();
+			session.setAttribute("action",acc);
 	        response.sendRedirect("acciones.jsp");
 	    }
 

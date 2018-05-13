@@ -58,7 +58,6 @@ public class AgregarProyecto extends HttpServlet {
         Usuario u = (Usuario) session.getAttribute("usuario");
         InterUPJpaController ijpa = new InterUPJpaController(EntityProvider.provider());
 
-        System.out.println("Nombre proyecto: " + nombreProy);
         ProyectoJpaController pjpa = new ProyectoJpaController(EntityProvider.provider());
         short a = 1;
         BigDecimal big = new BigDecimal(0.24);

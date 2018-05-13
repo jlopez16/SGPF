@@ -69,7 +69,31 @@
         <servlet-name>eliminaProyecto</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.eliminaProyecto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>agregandoAccion</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.agregandoAccion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificandoAccion</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.modificandoAccion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificaAccion</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.modificaAccion</servlet-class>
+    </servlet>
     
+    <servlet-mapping>
+        <servlet-name>modificaAccion</servlet-name>
+        <url-pattern>/modificaAccion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificandoAccion</servlet-name>
+        <url-pattern>/modificandoAccion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregandoAccion</servlet-name>
+        <url-pattern>/agregandoAccion</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>eliminaProyecto</servlet-name>
         <url-pattern>/eliminaProyecto</url-pattern>

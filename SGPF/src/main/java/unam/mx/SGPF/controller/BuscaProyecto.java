@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unam.mx.SGPF.controller;
-
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -13,11 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import unam.mx.SGPF.model.EntityProvider;
-import unam.mx.SGPF.model.InterUP;
 import unam.mx.SGPF.model.ProcesoFuncional;
 import unam.mx.SGPF.model.Proyecto;
-import unam.mx.SGPF.model.Usuario;
-import unam.mx.SGPF.model.controller.InterUPJpaController;
 import unam.mx.SGPF.model.controller.ProcesoFuncionalJpaController;
 import unam.mx.SGPF.model.controller.ProyectoJpaController;
 
