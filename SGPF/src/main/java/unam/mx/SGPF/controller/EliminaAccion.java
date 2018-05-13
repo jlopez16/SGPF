@@ -35,7 +35,6 @@ public class EliminaAccion extends HttpServlet {
 	    		ajpa.edit(ac);
 	    	}catch(Exception e) {
 	    		e.printStackTrace();
-	    		//Aqui debe mandar un mensaje de error 
 	    	}
 	    	HttpSession session = request.getSession(true);
 			

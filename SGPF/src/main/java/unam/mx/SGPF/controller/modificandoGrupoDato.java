@@ -6,28 +6,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import unam.mx.SGPF.model.EntityProvider;
+import unam.mx.SGPF.model.GrupoDato;
 import unam.mx.SGPF.model.UsuarioFuncional;
+import unam.mx.SGPF.model.controller.GrupoDatoJpaController;
 import unam.mx.SGPF.model.controller.UsuarioFuncionalJpaController;
 
-public class modificandoUF extends HttpServlet{
+public class modificandoGrupoDato extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	String nombreAccion = request.getParameter("nombreUF");
-        String descripcion = request.getParameter("descripcionUF");
-        int idUF = Integer.parseInt(request.getParameter("idUF"));
+    	String nombreGD = request.getParameter("nombreGD");
+        String descripcionGD = request.getParameter("descripcionGD");
+        int idGD = Integer.parseInt(request.getParameter("idGD"));
         
-        UsuarioFuncionalJpaController ufjpa = new UsuarioFuncionalJpaController(EntityProvider.provider());
-        UsuarioFuncional UF = ufjpa.findUsuarioFuncional(idUF);
-        UF.setNomUF(nombreAccion);
-        UF.setDescripcion(descripcion);
+        GrupoDatoJpaController gdjpa = new GrupoDatoJpaController(EntityProvider.provider());
+        GrupoDato GD = gdjpa.findGrupoDato(idGD);
+        GD.setNomGD(nombreGD);
+        GD.setDescripcion(descripcionGD);
         
     	try{
-            ufjpa.edit(UF);
+            gdjpa.edit(GD);
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            response.sendRedirect("usuarioFuncional");
+            response.sendRedirect("grupoDatos");
         }
        
     }

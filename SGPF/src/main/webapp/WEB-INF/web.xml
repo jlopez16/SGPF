@@ -97,7 +97,55 @@
         <servlet-name>modificandoUF</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.modificandoUF</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>grupoDatos</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.grupoDatos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminaGrupoDato</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.EliminaGrupoDato</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificaGrupoDato</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.modificaGrupoDato</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificandoGrupoDato</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.modificandoGrupoDato</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregandoGrupoDato</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.agregandoGrupoDato</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregandoUF</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.agregandoUF</servlet-class>
+    </servlet>
     
+    <servlet-mapping>
+        <servlet-name>agregandoUF</servlet-name>
+        <url-pattern>/agregandoUF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregandoGrupoDato</servlet-name>
+        <url-pattern>/agregandoGrupoDato</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificandoGrupoDato</servlet-name>
+        <url-pattern>/modificandoGrupoDato</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificaGrupoDato</servlet-name>
+        <url-pattern>/modificaGrupoDato</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminaGrupoDato</servlet-name>
+        <url-pattern>/EliminaGrupoDato</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>grupoDatos</servlet-name>
+        <url-pattern>/grupoDatos</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>modificandoUF</servlet-name>
         <url-pattern>/modificandoUF</url-pattern>
