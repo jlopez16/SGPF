@@ -104,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `SGPF`.`procesoFuncional` (
   `eventoDes` VARCHAR(250) NOT NULL,
   `idproyecto` INT NOT NULL,
   `tamPF` INT NOT NULL,
+  `activo` TINYINT NOT NULL,
   PRIMARY KEY (`idprocesoFuncional`),
   INDEX `idproyecto_idx` (`idproyecto` ASC),
   CONSTRAINT `idproyecto`
@@ -272,8 +273,8 @@ insert into interUP (idusuario, idproyecto) values (1, 1);
 insert into interUP (idusuario, idproyecto) values (1, 2);
 insert into interUP (idusuario, idproyecto) values (2, 2);
 
-insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenante',2,0);
-insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF) values ('cualquiera','descripcion','entrada desencadenenante',2,0);
+insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF,activo) values ('cualquiera','descripcion','entrada desencadenante',2,0,true);
+insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF,activo) values ('cualquiera','descripcion','entrada desencadenenante',2,0,true);
 
 insert into accion (nomAccion,movDatos,descripcion,activo) values ('ingresa','E','entrada de datos',true);
 insert into accion (nomAccion,movDatos,descripcion,activo) values ('envia','X','envia de datos',true);

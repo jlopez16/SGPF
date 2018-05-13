@@ -32,6 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "ProcesoFuncional.findByIdprocesoFuncional", query = "SELECT p FROM ProcesoFuncional p WHERE p.idprocesoFuncional = :idprocesoFuncional")
     , @NamedQuery(name = "ProcesoFuncional.findByIdproyecto", query = "SELECT p FROM ProcesoFuncional p WHERE p.idproyecto = :idproyecto")
     , @NamedQuery(name = "ProcesoFuncional.findByNomPF", query = "SELECT p FROM ProcesoFuncional p WHERE p.nomPF = :nomPF")
+    , @NamedQuery(name = "ProcesoFuncional.findByIdProyectoActivo", query = "SELECT p FROM ProcesoFuncional p WHERE p.idproyecto=:idproyecto AND p.activo=:activo")
+    , @NamedQuery(name = "ProcesoFuncional.eliminaPF", query = "UPDATE ProcesoFuncional p SET p.activo=:activo WHERE p.idprocesoFuncional=:idPF")
     , @NamedQuery(name = "ProcesoFuncional.findByDescripcion", query = "SELECT p FROM ProcesoFuncional p WHERE p.descripcion = :descripcion")
     , @NamedQuery(name = "ProcesoFuncional.findByeventoDes", query = "SELECT p FROM ProcesoFuncional p WHERE p.eventoDes = :eventoDes")
     , @NamedQuery(name = "ProcesoFuncional.findByTamPF", query = "SELECT p FROM ProcesoFuncional p WHERE p.tamPF = :tamPF")})
@@ -53,6 +55,8 @@ public class ProcesoFuncional implements Serializable {
     @Column(nullable = false, length = 250)
     private String eventoDes;
     @Basic(optional = false)
+    @Column(nullable = false)
+    private short activo;
     @Column(nullable = false)
     private int tamPF;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idprocesoFuncional")
@@ -76,6 +80,22 @@ public class ProcesoFuncional implements Serializable {
         this.tamPF = tamPF;
     }
 
+    public String getEventoDes() {
+        return eventoDes;
+    }
+
+    public void setEventoDes(String eventoDes) {
+        this.eventoDes = eventoDes;
+    }
+
+    public short getActivo() {
+        return activo;
+    }
+
+    public void setActivo(short activo) {
+        this.activo = activo;
+    }
+    
     public Integer getIdprocesoFuncional() {
         return idprocesoFuncional;
     }

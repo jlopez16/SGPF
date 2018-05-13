@@ -61,6 +61,23 @@
         <servlet-name>agregarActividad</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.agregarActividad</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>eliminaPF</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.eliminaPF</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminaProyecto</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.eliminaProyecto</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>eliminaProyecto</servlet-name>
+        <url-pattern>/eliminaProyecto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminaPF</servlet-name>
+        <url-pattern>/eliminaPF</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>agregarActividad</servlet-name>
         <url-pattern>/agregarActividad</url-pattern>

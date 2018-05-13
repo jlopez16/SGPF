@@ -35,7 +35,7 @@ public class BuscaProyecto extends HttpServlet {
         
         ////////
     	ProcesoFuncionalJpaController pfjpa = new ProcesoFuncionalJpaController(EntityProvider.provider());
-    	List<ProcesoFuncional> pf = pfjpa.findPFByIdProyecto(idProyecto);
+    	List<ProcesoFuncional> pf = pfjpa.findPFByIdProyectoActivo(idProyecto);
         session.setAttribute("procFunc", pf);
         ////
         
@@ -55,7 +55,7 @@ public class BuscaProyecto extends HttpServlet {
         
         ////////
     	ProcesoFuncionalJpaController pfjpa = new ProcesoFuncionalJpaController(EntityProvider.provider());
-    	List<ProcesoFuncional> pf = pfjpa.findPFByIdProyecto(idProyecto);
+    	List<ProcesoFuncional> pf = pfjpa.findPFByIdProyectoActivo(idProyecto);
         session.setAttribute("procFunc", pf);
         ////
         

@@ -10,7 +10,7 @@
   </head>
   <%
      List<ProcesoFuncional> pfs = (List<ProcesoFuncional>) session.getAttribute("procFunc");
-  	 Proyecto p = (Proyecto) session.getAttribute("proy");
+  	 Proyecto p = (Proyecto) session.getAttribute("proy"); 
   %>
 
   <body>
@@ -30,8 +30,9 @@
       </tr>
       <tr>
       	<td><a href="modificaProyecto.jsp"><input type="submit" value="Modificar"/></a> </td>
-      	<form action="eliminarProyecto" method="post">
-      		<input type="submit" value="Eliminar"/>
+      	<form action="eliminaProyecto" method="post">
+                <input type="hidden" name="idProyecto" value="<%=p.getIdproyecto()%>">
+       		<input type="submit" value="Cambiar Estatus"/>
       	</form>
       </tr>
     </table>
@@ -49,11 +50,16 @@
     <table border="1">
     <%
       for (ProcesoFuncional inter : pfs) {
-          //ProcesoFuncional pf = inter.getIdprocesoFuncional();
     %>
     <tr>
         <td>Nombre del Proceso Funcional:</td>
         <td><a href="BuscaProcesoFuncional?idprocesoFuncional=<%=inter.getIdprocesoFuncional()%>"><%=inter.getNomPF()%></a></td>
+        <td>
+            <form action="eliminaPF" method="post">
+                <input type="hidden" name="idPF" value="<%=inter.getIdprocesoFuncional()%>">
+                <input type="submit" value="Eliminar">
+            </form>
+        </td>
       </tr>
   
     <%

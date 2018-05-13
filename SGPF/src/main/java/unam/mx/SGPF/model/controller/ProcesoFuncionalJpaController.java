@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import unam.mx.SGPF.model.EntityProvider;
 import unam.mx.SGPF.model.ProcesoFuncional;
 import unam.mx.SGPF.model.controller.exceptions.IllegalOrphanException;
 import unam.mx.SGPF.model.controller.exceptions.NonexistentEntityException;
@@ -212,6 +213,22 @@ public class ProcesoFuncionalJpaController implements Serializable {
         }
     }
     
+    public List<ProcesoFuncional> findPFByIdProyectoActivo(Integer id) {
+        EntityManager em = getEntityManager();
+        Proyecto p = new Proyecto(id);
+        Short b=1;
+        Query q = em.createNamedQuery("ProcesoFuncional.findByIdProyectoActivo")
+    			     .setParameter("idproyecto", p).setParameter("activo", b);
+        return q.getResultList();
+    }
+    
+    public void eliminaPF(ProcesoFuncional PF) {
+        EntityManager em = getEntityManager();
+        Short b=0;
+        Query q = em.createNamedQuery("ProcesoFuncional.eliminaPF")
+    			    .setParameter("idPF", PF.getIdprocesoFuncional())
+                            .setParameter("activo", b);
+    }
     public List<ProcesoFuncional> findPFByIdProyecto(Integer idProyecto){
     	EntityManager em = getEntityManager();
     	Proyecto p = new Proyecto(idProyecto);

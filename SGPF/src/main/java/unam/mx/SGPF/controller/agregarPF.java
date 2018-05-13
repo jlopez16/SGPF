@@ -33,6 +33,8 @@ public class agregarPF extends HttpServlet{
                 aux.seteventoDes(eventoDes);
                 aux.setIdproyecto(proyecto);
                 aux.setTamPF(0);
+                short b=1;
+                aux.setActivo(b);
                 System.out.println(aux.toString());
 	    	try {
 	    		PFjpa.create(aux);

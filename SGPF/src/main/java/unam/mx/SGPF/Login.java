@@ -21,10 +21,7 @@ import unam.mx.SGPF.model.Usuario;
 import unam.mx.SGPF.model.controller.InterUPJpaController;
 import unam.mx.SGPF.model.controller.UsuarioJpaController;
 
-/**
- *
- * @author pancha
- */
+
 public class Login extends HttpServlet {
 	/**
 	 * Handles the HTTP <code>POST</code> method.
@@ -58,7 +55,6 @@ public class Login extends HttpServlet {
 
 			Integer idUsuario = u.getIdusuario();
 			InterUPJpaController ijpa = new InterUPJpaController(EntityProvider.provider());
-
 			List<InterUP> inters = ijpa.getProyectosUsuario(u);
 			// Apuntador al objeto u
 			session.setAttribute("usuario", u);
