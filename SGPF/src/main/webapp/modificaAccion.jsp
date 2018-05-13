@@ -10,7 +10,7 @@
     </head>
     <body>
         <h1>Modifica Acción</h1>
-        <% Accion accion = (Accion) session.getAttribute("accionMod");System.out.println("El grupo de datos es >> "+accion.getMovDatos()); %>
+        <% Accion accion = (Accion) session.getAttribute("accionMod");%>
         <table><form action="modificandoAccion" method="post">
                 <tr>
                     <td>

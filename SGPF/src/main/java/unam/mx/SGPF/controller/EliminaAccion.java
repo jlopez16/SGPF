@@ -16,7 +16,7 @@ import unam.mx.SGPF.model.controller.AccionJpaController;
 
 public class EliminaAccion extends HttpServlet {
 	@Override
-	 protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 		 
 	    	Integer idAccion = Integer.parseInt(request.getParameter("idAccion"));

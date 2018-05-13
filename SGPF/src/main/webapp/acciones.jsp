@@ -9,9 +9,9 @@
 <%
    List<Accion> acciones = (List<Accion>) session.getAttribute("action");
 %>
-<h1>Catàlogo de Acciones</h1>
+<h1>Catálogo de Acciones</h1>
 
-<table >
+<table>
     <tr>
         <td>Nombre de la acción</td>
         <td>Movimiento de datos</td>

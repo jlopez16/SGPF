@@ -81,7 +81,39 @@
         <servlet-name>modificaAccion</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.modificaAccion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>usuarioFuncional</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.usuarioFuncional</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminaUF</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.EliminaUF</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificaUF</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.modificaUF</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificandoUF</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.modificandoUF</servlet-class>
+    </servlet>
     
+    <servlet-mapping>
+        <servlet-name>modificandoUF</servlet-name>
+        <url-pattern>/modificandoUF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificaUF</servlet-name>
+        <url-pattern>/modificaUF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminaUF</servlet-name>
+        <url-pattern>/EliminaUF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>usuarioFuncional</servlet-name>
+        <url-pattern>/usuarioFuncional</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>modificaAccion</servlet-name>
         <url-pattern>/modificaAccion</url-pattern>
