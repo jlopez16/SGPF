@@ -19,11 +19,13 @@
     </head>
     <%
         List<InterUP> inters = (List<InterUP>) session.getAttribute("inters");
+        int tipoUsuario = Integer.parseInt(session.getAttribute("tipoUsuario").toString());
     %>
     <body>
         <h1>Proyectos</h1>
+        <%if(tipoUsuario==1){%>
         <a href="crudCatalogos.jsp"><input type="Submit" value="Modificar Catálogos"/></a>
-
+        <% } %>
         <table border="1">
             <%
                 for (InterUP inter : inters) {
@@ -35,11 +37,18 @@
                 <td> Estatus: <%=p.getEstatus()%></td>
             </tr>
             <%
-                }
+                }if(tipoUsuario==1||tipoUsuario==2){
             %>
             <tr>
             	<td><a href="agregarProyecto.jsp"><input type="Submit" value="Agregar Nuevo Proyecto"/></a></td>
             </tr>
+            <% } %>
+            <tr>
+                <td><form action="cerrarSesion" method="post">
+                    <input type="submit" value="Cerrar Sesión">
+                    </td></form>
+            </tr>
         </table>
+        
     </body>
 </html>

@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package unam.mx.SGPF;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -23,18 +17,7 @@ import unam.mx.SGPF.model.controller.UsuarioJpaController;
 
 
 public class Login extends HttpServlet {
-	/**
-	 * Handles the HTTP <code>POST</code> method.
-	 *
-	 * @param request
-	 *            servlet request
-	 * @param response
-	 *            servlet response
-	 * @throws ServletException
-	 *             if a servlet-specific error occurs
-	 * @throws IOException
-	 *             if an I/O error occurs
-	 */
+	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -46,14 +29,25 @@ public class Login extends HttpServlet {
 		// Objeto que establece la conexión ujpa de tabla USUARIO
 		UsuarioJpaController ujpa = new UsuarioJpaController(EntityProvider.provider());
 		Usuario u = ujpa.getUsuarioByUserAndPass(usuario, pass);
-
+                
 		if (u == null) {
 			response.sendRedirect("index.html");
 		} else {
 			// Objeto que establece la sesión
-			HttpSession session = request.getSession(true);
+                        HttpSession session = request.getSession(true);
+                        int tipoUsuario;
+                        if(u.getUsuTipo1()!=null){
+                            tipoUsuario =  1;
+                        }else{
+                            if(u.getUsuTipo2()!=null){
+                                tipoUsuario = 2;
+                            }
+                            else{
+                                tipoUsuario = 3;
+                            }
+                        }
+                        session.setAttribute("tipoUsuario", tipoUsuario);
 
-			Integer idUsuario = u.getIdusuario();
 			InterUPJpaController ijpa = new InterUPJpaController(EntityProvider.provider());
 			List<InterUP> inters = ijpa.getProyectosUsuario(u);
 			// Apuntador al objeto u

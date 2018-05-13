@@ -6,6 +6,10 @@
         <servlet-class>unam.mx.SGPF.Login</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>cerrarSesion</servlet-name>
+        <servlet-class>unam.mx.SGPF.cerrarSesion</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>BuscaProyecto</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.BuscaProyecto</servlet-class>
     </servlet>
@@ -233,6 +237,10 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cerrarSesion</servlet-name>
+        <url-pattern>/cerrarSesion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BuscaProyecto</servlet-name>
