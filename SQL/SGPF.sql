@@ -245,56 +245,21 @@ set foreign_key_checks = 0;
 -- END //
 
 
-insert into usuario (nomUsuario, pwdUsuario,usuTipo1) values ('Olga', 'pass',true);
-insert into usuario (nomUsuario, pwdUsuario,usuTipo2) values ('Juan', 'pass',true);
+INSERT INTO `usuario` VALUES (1,'Olga','pass',1,NULL,NULL),(2,'Juan','pass',NULL,1,NULL),(3,'Pancho','pass',NULL,NULL,1);
 
-insert into proyecto (nomProy,anioProy,operProy,duraProy,esfuTotProy,esfuPlaneProy,esfuEsReqProy,esfuAnaDisProy,
-  esfuConstProy,esfuPrueProy,esfuImpleDesProy,costTotProy,costEsReqProy,costAnaDisProy,costConstProy,costPrueProy,
-  costImpleDesProy,tamFunProy,fpAjusProy,medidorCertProy,expeMedMetProy,usoCase,certModelo,comCertModelo,
-  costPlanProy,confInfo,arqProyecto,metDesarrollo,metMedicion,sisOpe,tipoDesarrollo,lenguaje,
-  modCalidad,baseDatos,secOrg,estatus,tipoOrg,tipoCapOrg,tamOrgDes,
-  tamOrgUsa,marcoPosUsa,escala,capDes,proposito,alcance)
-values
-('C-Reg', '1993', true, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
-true, 10, true, false, 'foo', 12.0, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg',
- 'abcdef', 'abcdefg', false, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdefg', 'abcdef', 'abcdefg');
- insert into proyecto (nomProy,anioProy,operProy,duraProy,esfuTotProy,esfuPlaneProy,esfuEsReqProy,esfuAnaDisProy,
-   esfuConstProy,esfuPrueProy,esfuImpleDesProy,costTotProy,costEsReqProy,costAnaDisProy,costConstProy,costPrueProy,
-   costImpleDesProy,tamFunProy,fpAjusProy,medidorCertProy,expeMedMetProy,usoCase,certModelo,comCertModelo,
-   costPlanProy,confInfo,arqProyecto,metDesarrollo,metMedicion,sisOpe,tipoDesarrollo,lenguaje,
-   modCalidad,baseDatos,secOrg,estatus,tipoOrg,tipoCapOrg,tamOrgDes,
-   tamOrgUsa,marcoPosUsa,escala,capDes,proposito,alcance)
- values
- ('SGPF', '1993', true, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
- true, 10, true, false, 'foo', 12.0, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg',
-  'abcdef', 'abcdefg', false, 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdef', 'abcdefg', 'abcdefg', 'abcdef', 'abcdefg');
+INSERT INTO `proyecto` VALUES (1,'C-Reg','1993',1,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,1,10,1,0,'foo',12.00,'abcdef','abcdefg','abcdef','abcdefg','abcdef','abcdefg','abcdef','abcdefg','abcdef','abcdefg',1,'abcdef','abcdefg','abcdef','abcdefg','abcdef','abcdefg','abcdefg','abcdef','abcdefg'),(2,'SGPF','1993',1,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,10.00,1,10,1,0,'foo',12.00,'abcdef','abcdefg','abcdef','abcdefg','abcdef','abcdefg','abcdef','abcdefg','abcdef','abcdefg',0,'abcdef','abcdefg','abcdef','abcdefg','abcdef','abcdefg','abcdefg','abcdef','abcdefg'),(3,'Olgasss','2015',1,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,1,1,1,1,'Olgasss',0.24,'Olgasss','Olgasss','Olgasss','Olgasss','Olgasss','Olgasss','Olgasss','Olgasss','Olgasss','Olgasss',1,'Olgasss','Olgasss','Olgasss','Olgasss','Olgasss','Olgasss','Olgasss','Olgasss','Olgasss'),(4,'C-Reg691ffeaafe23','2015',1,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,0.24,1,1,1,1,'C-Reg69123',0.24,'C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123',0,'C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123','C-Reg69123');
 
-insert into interUP (idusuario, idproyecto) values (1, 1);
-insert into interUP (idusuario, idproyecto) values (1, 2);
-insert into interUP (idusuario, idproyecto) values (2, 2);
+INSERT INTO `interup` VALUES (1,1,1),(2,1,2),(3,2,2),(4,1,3),(5,1,4),(6,3,2),(7,3,4);
 
-insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF,activo) values ('cualquiera','descripcion','entrada desencadenante',2,0,true);
-insert into procesoFuncional (nomPF,descripcion,eventoDes,idproyecto,tamPF,activo) values ('cualquiera','descripcion','entrada desencadenenante',2,0,true);
+INSERT INTO `procesofuncional` VALUES (1,'cualquiera','descripcion','entrada desencadenante',2,0,1),(2,'cualquiera','descripcion','entrada desencadenenante',2,0,0),(3,'Pancho','Nuevo','Genial',2,0,1),(4,'Mi Proceso Funcional','Esta es una descripción para el proceso funcional.','Esta es una instancia de evento desencadenante',2,0,0),(5,'Nuevo','hkjekj','nhjhkj',4,0,0);
 
-insert into accion (nomAccion,movDatos,descripcion,activo) values ('ingresa','E','entrada de datos',true);
-insert into accion (nomAccion,movDatos,descripcion,activo) values ('envia','X','envia de datos',true);
-insert into accion (nomAccion,movDatos,descripcion,activo) values ('solicita','R','pide de datos',false);
+INSERT INTO `accion` VALUES (1,'ingresaSz','M','entrada de datos',1),(2,'envia','X','envia de datos',0),(3,'solicita','R','pide de datos',0),(4,'Prueba','X','This',1),(5,'Prueba2','E','22',1),(6,'Prueba','X','C',1),(7,'Bombón','M','D',1),(8,'Prueba','E','This is the description',1);
 
-insert into grupoDato (nomGD,descripcion,activo) values ('estudiante','Estudiante del IIMAS',true);
-insert into usuarioFuncional (nomUF,descripcion,activo) values ('Registrador','Registrador del IIMAS',true);
+INSERT INTO `grupodato` VALUES (1,'estudianteR','Estudiante del IIMAZ',0),(2,'Juano','Sisg',1),(3,'','',1),(4,'','',1),(5,'','',1),(6,'','',1),(7,'df','',1),(8,'fe','ef',1),(9,'Juano','Feith',1),(10,'Peio','kbjhb',1);
 
-insert into usuarioFuncional (nomUF,descripcion,activo) values ('C-Reg','Sistema C-Reg',true);
-insert into usuarioFuncional (nomUF,descripcion,activo) values ('Registrador','Registrador C-Reg',true);
+INSERT INTO `usuariofuncional` VALUES (1,'Registradores','Registrador del IIMAST',1),(2,'C-Reg','Sistema C-Reg',1),(3,'Registrador','Registrador C-Reg',1),(4,'Juano','FHKLI',1);
 
-insert into subProceso (flujoAl,descripcion, idusuarioFuncional,idaccion,idgrupoDato,idprocesoFuncional,actividad,indice)
-values (0,'los datos de',2,1,1,2,'Inicio de PF',1);
-insert into subProceso (flujoAl,descripcion, idusuarioFuncional,idaccion,idgrupoDato,idprocesoFuncional,actividad,indice)
-values (0,'los datos de',2,1,1,2,'Inicio de PF',2);
-insert into subProceso (flujoAl,descripcion, idusuarioFuncional,idaccion,idgrupoDato,idprocesoFuncional,actividad,indice)
-values (0,'los datos de',2,1,1,2,'Valida',1);
-insert into subProceso (flujoAl,descripcion, idusuarioFuncional,idaccion,idgrupoDato,idprocesoFuncional,actividad,indice)
-values (0,'los datos de',2,1,1,2,'Valida',2);
-
+INSERT INTO `subproceso` VALUES (1,0,'los datos de',2,1,1,2,'Inicio de PF',1),(2,0,'los datos de',2,1,1,2,'Inicio de PF',2),(3,0,'los datos de',2,1,1,2,'Valida',1),(4,0,'los datos de',2,1,1,2,'Valida',2),(5,1,'canjlewnlk',1,1,2,5,'Inicio de Proceso Funcional',1),(6,1,'caenew',1,1,2,5,'Inicio de Proceso Funcional',2);
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
