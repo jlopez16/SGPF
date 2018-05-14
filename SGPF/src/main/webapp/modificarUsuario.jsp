@@ -18,6 +18,7 @@
                     Usuario:
                 </td>
                 <td>
+                    <input type="hidden" name="IdUsuario" value="<%=usuario.getIdusuario()%>">
                     <input type="text" name="nomUsuario" value="<%=usuario.getNomUsuario()%>" required>
                 </td>
             </tr>
@@ -35,17 +36,23 @@
                 </td>
                 <td>
                 <%if(usuario.getUsuTipo1()!=null){%>
-                    <input type="radio" name="usuTipo1" value="" checked="checked"/>
-                    <input type="radio" name="usuTipo2" value="" />
-                    <input type="radio" name="usuTipo3" value="" />
+                <select name="usuTipo">
+                    <option value="1" selected>Administrador</option>
+                    <option value="2">Gestor de Proyecto</option>
+                    <option value="3">Consultor</option>
+                </select>
                 <%}else{if(usuario.getUsuTipo2()!=null){%>
-                    <input type="radio" name="usuTipo1" value="" />
-                    <input type="radio" name="usuTipo2" value="" checked="checked"/>
-                    <input type="radio" name="usuTipo3" value="" />
+                <select name="usuTipo">
+                    <option value="1">Administrador</option>
+                    <option value="2" selected>Gestor de Proyecto</option>
+                    <option value="3">Consultor</option>
+                </select>
                 <%}else{%>
-                    <input type="radio" name="usuTipo1" value="" />
-                    <input type="radio" name="usuTipo2" value="" />
-                    <input type="radio" name="usuTipo3" value="" checked="checked"/>
+                <select name="usuTipo">
+                    <option value="1">Administrador</option>
+                    <option value="2">Gestor de Proyecto</option>
+                    <option value="3" selected>Consultor</option>
+                </select>
                 <%}}%>
                 </td>
             </tr>

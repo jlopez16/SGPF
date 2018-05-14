@@ -13,10 +13,10 @@
         <table border="1">
             <tr>
                 <td>
-                    Nombre: 
+                    Nombre 
                 </td>
                 <td>
-                    Tipo usuario:
+                    Tipo usuario
                 </td>
             </tr>
             <%for(Usuario usuario : usuarios){%>
@@ -28,7 +28,7 @@
                     <%if(usuario.getUsuTipo1()!=null){%>Administrador
                     <%}else{if(usuario.getUsuTipo2()!=null){%>Gestor de Proyecto
                     <%}else{if(usuario.getUsuTipo3()!=null){%>Consultor
-                    <%}else{%>Inactivo<%}}}%>
+                    <%}else{%> = Inactivo = <%}}}%>
                 </td>
                 <td>
                     <a href="modificarUsuario?idUsuario=<%=usuario.getIdusuario()%>">
@@ -41,6 +41,11 @@
                 <td>
                     <a href="proyectos.jsp">
                         <input type="submit" value="Regresar">
+                    </a>
+                </td>
+                <td>
+                    <a href="agregarUsuario.jsp">
+                        <input type="submit" value="Agregar Usuario">
                     </a>
                 </td>
             </tr>

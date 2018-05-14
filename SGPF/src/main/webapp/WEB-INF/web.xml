@@ -133,7 +133,23 @@
         <servlet-name>modificarUsuario</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.modificarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>modificaUsuario</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.modificaUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregarUsuario</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.agregarUsuario</servlet-class>
+    </servlet>
     
+    <servlet-mapping>
+        <servlet-name>agregarUsuario</servlet-name>
+        <url-pattern>/agregarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificaUsuario</servlet-name>
+        <url-pattern>/modificaUsuario</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>modificarUsuario</servlet-name>
         <url-pattern>/modificarUsuario</url-pattern>
