@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import unam.mx.SGPF.model.EntityProvider;
 import unam.mx.SGPF.model.InterUP;
+import unam.mx.SGPF.model.ProcesoFuncional;
 import unam.mx.SGPF.model.Proyecto;
 import unam.mx.SGPF.model.Usuario;
 import unam.mx.SGPF.model.controller.InterUPJpaController;
+import unam.mx.SGPF.model.controller.ProcesoFuncionalJpaController;
 import unam.mx.SGPF.model.controller.ProyectoJpaController;
-import unam.mx.SGPF.model.controller.UsuarioJpaController;
 
 public class eliminaProyecto extends HttpServlet{
     @Override
@@ -26,12 +27,15 @@ public class eliminaProyecto extends HttpServlet{
         ProyectoJpaController pjpa = new ProyectoJpaController(EntityProvider.provider());
         Proyecto proyecto = pjpa.findProyecto(idProyecto);
         short a=0;
-        proyecto.setEstatus(a);
+        if(proyecto.getEstatus()==1)
+            proyecto.setEstatus(a);
+        else{
+            a=1;
+            proyecto.setEstatus(a);
+        }
         HttpSession session = request.getSession(true);
         Usuario idUsuario = (Usuario) session.getAttribute("usuario");
         InterUPJpaController ijpa = new InterUPJpaController(EntityProvider.provider());
-        //UsuarioJpaController ujpa = new UsuarioJpaController(EntityProvider.provider());
-        //Usuario u = ujpa.findUsuario(idUsuario.getIdusuario());
             
         try {
             

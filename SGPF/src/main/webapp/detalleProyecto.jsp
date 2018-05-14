@@ -11,6 +11,7 @@
   <%
      List<ProcesoFuncional> pfs = (List<ProcesoFuncional>) session.getAttribute("procFunc");
   	 Proyecto p = (Proyecto) session.getAttribute("proy"); 
+         int tipoUsuario = Integer.parseInt(session.getAttribute("tipoUsuario").toString());
   %>
 
   <body>
@@ -29,11 +30,16 @@
         <td><%=p.getDuraProy()%></td>
       </tr>
       <tr>
-      	<td><a href="modificaProyecto.jsp"><input type="submit" value="Modificar"/></a> </td>
+        <%if(tipoUsuario!=3&&p.getEstatus()==1){%>  
+      	<td>
+            <a href="modificaProyecto.jsp"><input type="submit" value="Modificar"/></a> </td>
+        <% } %>
+        <% if(tipoUsuario!=3){%>
       	<form action="eliminaProyecto" method="post">
                 <input type="hidden" name="idProyecto" value="<%=p.getIdproyecto()%>">
        		<input type="submit" value="Cambiar Estatus"/>
       	</form>
+        <% } %>
       </tr>
     </table>
     <br>
@@ -41,10 +47,11 @@
     <br><br>
     <!--<form action="agregarPF" method="POST">-->
         <!--<input type="hidden" name="idPF" value="<%=p.getIdproyecto()%>">-->
+    <%if(tipoUsuario!=3&&p.getEstatus()==1){%>
     <a href="agregaPF.jsp">
         <input type="submit" value="Agregar PF">
     </a>
-        
+    <% } %>
     <!--</form>-->
     <br>
     <table border="1">
@@ -55,10 +62,12 @@
         <td>Nombre del Proceso Funcional:</td>
         <td><a href="BuscaProcesoFuncional?idprocesoFuncional=<%=inter.getIdprocesoFuncional()%>"><%=inter.getNomPF()%></a></td>
         <td>
+            <%if(tipoUsuario!=3&&p.getEstatus()==1){%>  
             <form action="eliminaPF" method="post">
                 <input type="hidden" name="idPF" value="<%=inter.getIdprocesoFuncional()%>">
                 <input type="submit" value="Eliminar">
             </form>
+            <% } %>
         </td>
       </tr>
   

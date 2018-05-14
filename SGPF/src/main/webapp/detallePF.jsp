@@ -1,4 +1,4 @@
-
+<%@page import="unam.mx.SGPF.model.Proyecto"%>
 <%@page import="unam.mx.SGPF.model.ProcesoFuncional"%>
 <%@page import="unam.mx.SGPF.model.UsuarioFuncional"%>
 <%@page import="unam.mx.SGPF.model.Accion"%>
@@ -10,13 +10,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>JSP Page</title>
+        <title>Detalle Proceso Funcional</title>
     </head>
     <body>
     <div>
     	<%
      	ProcesoFuncional detalle = (ProcesoFuncional) session.getAttribute("pfDetalle");
         List<SubProceso> spList = (List<SubProceso>) session.getAttribute("subProc"); 
+        int tipoUsuario = Integer.parseInt(session.getAttribute("tipoUsuario").toString());
+        Proyecto p = (Proyecto) session.getAttribute("proy");
         %>
         <h1>Detalle de Proceso Funcional</h1>
         <table border="1">
@@ -33,9 +35,13 @@
         <td><%=detalle.geteventoDes()%></td>
       </tr>
       <tr>
-      <a href="modifyPF.jsp">
-        <input type="submit" value="Modificar"/>
-      </a>
+          <td>
+              <%if(tipoUsuario!=3&&p.getEstatus()==1){%>
+                <a href="modifyPF.jsp">
+                    <input type="submit" value="Modificar"/>
+                </a>
+              <% } %>
+          </td>
       </tr>
     </table>
      <br>
@@ -44,10 +50,12 @@
         <div>
         <h2>Lista de Actividades</h2>
         <br>
+        <%if(tipoUsuario!=3&&p.getEstatus()==1){%>
         <form action="agregarActividad" method="post">
             <input type="hidden" name="idProcesoFuncional" value="<%=detalle.getIdprocesoFuncional()%>">
             <input type="submit" value="Agregar Actividad"/>
         </form>
+        <% } %>
         <br>
     	<table border="1">
     		<%
@@ -66,6 +74,7 @@
     			<td><%=acc.getNomAccion()%></td>
         		<td><%=inter.getDescripcion()%></td>
         		<td><%=gd.getNomGD()%></td>
+                        <%if(tipoUsuario!=3&&p.getEstatus()==1){%>
         		<td>
         			<form action="modActividad" method ="POST">
                                     <input type="hidden" name="idSubProceso" value="<%=inter.getIdsubProceso()%>"/>
@@ -84,7 +93,8 @@
                                 <%
                                 }
                                 %>
-        		</td> 
+        		</td>
+                        <% } %>
         		<% }else{%>
                         <td bgcolor="#FF0000"><%=inter.getIdsubProceso()%></td>
                         <td bgcolor="#FF0000"><%=inter.getActividad()%></td>
@@ -92,12 +102,14 @@
     			<td><%=acc.getNomAccion()%></td>
         		<td><%=inter.getDescripcion()%></td>
         		<td><%=gd.getNomGD()%></td>
+                        <%if(tipoUsuario!=3&&p.getEstatus()==1){%>
         		<td>
                                 <form action="eliSubproceso" method="POST">
                                     <input type="hidden" name="idSubProceso" value="<%=inter.getIdsubProceso()%>"/>
                                     <input type="submit" value="Eliminar" />
                                 </form>
         		</td>
+                        <% } %>
         		<%} %>
      		</tr>
     		<%
