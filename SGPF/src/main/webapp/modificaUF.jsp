@@ -15,12 +15,12 @@
                 <td>Nombre del Usuario Funcional:</td>
                 <td>
                     <input type="hidden" name="idUF" value="<%=uf.getIdusuarioFuncional()%>">
-                    <input type="text" name="nombreUF" value="<%=uf.getNomUF()%>">
+                    <input type="text" name="nombreUF" value="<%=uf.getNomUF()%>" required>
                 </td>
             </tr>
             <tr>
                 <td>Descripción:</td>
-                <td><input type="text" name="descripcionUF" value="<%=uf.getDescripcion()%>"></td>
+                <td><input type="text" name="descripcionUF" value="<%=uf.getDescripcion()%>" required></td>
             </tr>
             <tr>
                 <td>

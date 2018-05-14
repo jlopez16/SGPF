@@ -28,13 +28,13 @@
                 Descripción:
             </td>
             <td>
-                <input type="text" name="descripcion">
+                <input type="text" name="descripcion" required>
             </td>
             <td>
                 Usuario Funcional:
             </td>
             <td>
-                <select name="usuarioFuncional">
+                <select name="usuarioFuncional" required>
                     <%
                         List<UsuarioFuncional> usuarioFuncionalCat = (List<UsuarioFuncional>) session.getAttribute("ufCatalogo");
                         for (UsuarioFuncional usuarioF : usuarioFuncionalCat){
@@ -53,7 +53,7 @@
                 Acción:
             </td>
             <td>
-                <select name="accion">
+                <select name="accion" required>
                     <%
                         List<Accion> accionesCat = (List<Accion>) session.getAttribute("accCatalogo");
                         for (Accion accion : accionesCat){
@@ -72,7 +72,7 @@
                 Grupo de Datos:
             </td>
             <td>
-                <select name="grupoDatos">
+                <select name="grupoDatos" required>
                     <%
                         List<GrupoDato> grupoDatoCat = (List<GrupoDato>)session.getAttribute("grupoDatosCatalogo");
                         for (GrupoDato grupoDato : grupoDatoCat){ 
@@ -102,6 +102,6 @@
                 <input type="hidden" name="idprocesoFuncional" value="<%=SubProceso.getIdprocesoFuncional().getIdprocesoFuncional()%>" />
                 <input type="submit" value="Cancelar Cambios"/></form>
     </td>
-</tr>
+    </tr>
     </body>
 </html>

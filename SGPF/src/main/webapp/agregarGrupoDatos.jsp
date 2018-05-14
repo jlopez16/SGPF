@@ -11,11 +11,11 @@
             <form action="agregandoGrupoDato" method="post">
             <tr>
                 <td>Nombre del grupo de datos:</td>
-                <td><input type="text" name="nombreGD"></td>
+                <td><input type="text" name="nombreGD" required></td>
             </tr>
             <tr>
                 <td>Descripción del grupo de datos:</td>
-                <td><input type="text" name="descripcionGD"></td>
+                <td><input type="text" name="descripcionGD" required></td>
             </tr>
             <tr>
                 <td>

@@ -14,7 +14,7 @@
                         Nombre de la acción:
                     </td>
                     <td>
-                        <input type="text" name="nombreAccion">
+                        <input type="text" name="nombreAccion" required>
                     </td>
                 </tr>
                 <tr>
@@ -36,7 +36,7 @@
                         Descripción:
                     </td>
                     <td>
-                        <input type="text" name="descripcion">
+                        <input type="text" name="descripcion" required>
                     </td>
                 </tr>
                 <tr>

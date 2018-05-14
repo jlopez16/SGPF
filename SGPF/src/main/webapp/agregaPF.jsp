@@ -15,16 +15,16 @@
         <table>
             <tr>
                 <td>Nombre del Proceso Funcional: </td>
-                <td><input type="text" name="nombrePF"></td>
+                <td><input type="text" name="nombrePF" required></td>
             </tr>
             <tr>
                 <td>Descripción: </td>
-                <td><input type="text" name="descripcioPF"></td>
+                <td><input type="text" name="descripcioPF" required></td>
             </tr>
             <tr>
                 <td>Evento Desencadenante: </td>
                 <td>
-                    <input type="text" name="eventoDes">
+                    <input type="text" name="eventoDes" required>
                     <input type="hidden" name="idProyecto" value="<%=p.getIdproyecto()%>">
                 </td>
             </tr>

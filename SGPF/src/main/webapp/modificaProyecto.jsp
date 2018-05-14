@@ -20,7 +20,7 @@
             </tr>    
             <tr>
                 <td>Nombre: </td>
-                <td><input type="text" name="nombreProyecto" value="<%=p.getNomProy()%>"> </td>
+                <td><input type="text" name="nombreProyecto" value="<%=p.getNomProy()%>" required> </td>
             </tr>
             
             <tr>

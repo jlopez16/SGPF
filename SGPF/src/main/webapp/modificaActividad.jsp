@@ -26,13 +26,13 @@
                 Actividad:
             </td>
             <td>
-                <input type="text" name="actividad" value ="<%=subProcesoMod.getActividad()%>">
+                <input type="text" name="actividad" value ="<%=subProcesoMod.getActividad()%>" required>
             </td>
             <td>
                 Descripción:
             </td>
             <td>
-                <input type="text" name="descripcion" value="<%=subProcesoMod.getDescripcion()%>">
+                <input type="text" name="descripcion" value="<%=subProcesoMod.getDescripcion()%>" required>
             </td>
             <td>
                 Usuario Funcional:

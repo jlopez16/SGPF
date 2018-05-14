@@ -34,20 +34,20 @@ Validad ID del PF con ....
             <%
                 }else{
             %>
-                <input type="text" name="actividad" >    
+                <input type="text" name="actividad" required>    
             <% } %>
             </td>
             <td>
                 Descripción:
             </td>
             <td>
-                <input type="text" name="descripcion">
+                <input type="text" name="descripcion" required>
             </td>
             <td>
                 Usuario Funcional:
             </td>
             <td>
-                <select name="usuarioFuncional">
+                <select name="usuarioFuncional" required>
                     <%
                         List<UsuarioFuncional> usuarioFuncionalCat = (List<UsuarioFuncional>) session.getAttribute("ufCatalogo");
                         for (UsuarioFuncional usuarioF : usuarioFuncionalCat){
@@ -66,7 +66,7 @@ Validad ID del PF con ....
                 Acción:
             </td>
             <td>
-                <select name="accion">
+                <select name="accion" required>
                     <%
                         List<Accion> accionesCat = (List<Accion>) session.getAttribute("accCatalogo");
                         for (Accion accion : accionesCat){
@@ -85,7 +85,7 @@ Validad ID del PF con ....
                 Grupo de Datos:
             </td>
             <td>
-                <select name="grupoDatos">
+                <select name="grupoDatos" required>
                     <%
                         List<GrupoDato> grupoDatoCat = (List<GrupoDato>)session.getAttribute("grupoDatosCatalogo");
                         for (GrupoDato grupoDato : grupoDatoCat){ 

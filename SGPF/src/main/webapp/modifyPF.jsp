@@ -18,15 +18,15 @@
                         <td>Nombre Proceso Funcional:</td>
                         <td>
                             <input type="hidden" name="idProcesoFuncional" value="<%=detalle.getIdprocesoFuncional()%>">
-                            <input type="text" name="nombreProcesoFuncional" value="<%=detalle.getNomPF()%>"></td>
+                            <input type="text" name="nombreProcesoFuncional" value="<%=detalle.getNomPF()%>" required></td>
                 </tr>
                 <tr>
                         <td>Descripción:</td>
-                        <td><input type="text" name="descripcionPF" value="<%=detalle.getDescripcion()%>"></td>
+                        <td><input type="text" name="descripcionPF" value="<%=detalle.getDescripcion()%>" required></td>
                 </tr>
               <tr>
                 <td>Evento desencadenante:</td>
-                <td><input type="text" name="eventoDes" value="<%=detalle.geteventoDes()%>"></td>
+                <td><input type="text" name="eventoDes" value="<%=detalle.geteventoDes()%>" required></td>
               </tr>
               <tr>
                   <td>

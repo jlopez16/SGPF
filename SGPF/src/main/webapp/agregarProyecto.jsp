@@ -10,7 +10,7 @@
         <form action="AgregarProyecto" method="POST">
             <table>
             <tr>
-                <td>Nombre: <input type="text" name="nombreProyecto"></td>
+                <td>Nombre: <input type="text" name="nombreProyecto" required></td>
                 <td> <input type="submit" value="Submit"> </td>
             </tr>
         </table>

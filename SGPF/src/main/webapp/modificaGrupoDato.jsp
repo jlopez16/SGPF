@@ -17,7 +17,7 @@
                 </td>
                 <td>
                     <input type="hidden" name="idGD" value="<%=grupoDatoMod.getIdgrupoDato()%>">
-                    <input type="text" name="nombreGD" value="<%=grupoDatoMod.getNomGD()%>">
+                    <input type="text" name="nombreGD" value="<%=grupoDatoMod.getNomGD()%>" required>
                 </td>
             </tr>
             <tr>
@@ -25,7 +25,7 @@
                     Descripción:
                 </td>
                 <td>
-                    <input type="text" name="descripcionGD" value="<%=grupoDatoMod.getDescripcion()%>">
+                    <input type="text" name="descripcionGD" value="<%=grupoDatoMod.getDescripcion()%>" required>
                 </td>
             </tr>
             <tr>

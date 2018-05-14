@@ -18,7 +18,7 @@
                     </td>
                     <td>
                         <input type="hidden" name="idAccion" value="<%=accion.getIdaccion()%>">
-                        <input type="text" name="nombreAccion" value="<%=accion.getNomAccion()%>">
+                        <input type="text" name="nombreAccion" value="<%=accion.getNomAccion()%>" required>
                     </td>
                 </tr>
                 <tr>
@@ -74,7 +74,7 @@
                         Descripción:
                     </td>
                     <td>
-                        <input type="text" name="descripcion" value="<%=accion.getDescripcion()%>">
+                        <input type="text" name="descripcion" value="<%=accion.getDescripcion()%>" required>
                     </td>
                 </tr>
                 <tr>
