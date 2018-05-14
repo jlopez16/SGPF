@@ -23,10 +23,24 @@
     %>
     <body>
         <h1>Proyectos</h1>
-        <%if(tipoUsuario==1){%>
-        <a href="crudCatalogos.jsp"><input type="Submit" value="Modificar Catálogos"/></a>
-        <% } %>
+       
         <table border="1">
+            <tr>
+                <td>
+                    <%if(tipoUsuario==1){%>
+                        <a href="crudCatalogos.jsp">
+                            <input type="Submit" value="Modificar Catálogos"/>
+                        </a>
+                    <% } %>
+                </td>
+                <td>
+                    <%if(tipoUsuario==1){%>
+                        <a href="gestionUsuarios">
+                            <input type="Submit" value="Gestionar Usuarios"/>
+                        </a>
+                    <% } %>
+                </td>
+            </tr>
             <%
                 for (InterUP inter : inters) {
                     Proyecto p = inter.getIdproyecto();

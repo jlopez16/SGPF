@@ -125,7 +125,23 @@
         <servlet-name>agregandoUF</servlet-name>
         <servlet-class>unam.mx.SGPF.controller.agregandoUF</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>gestionUsuarios</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.gestionUsuarios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarUsuario</servlet-name>
+        <servlet-class>unam.mx.SGPF.controller.modificarUsuario</servlet-class>
+    </servlet>
     
+    <servlet-mapping>
+        <servlet-name>modificarUsuario</servlet-name>
+        <url-pattern>/modificarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>gestionUsuarios</servlet-name>
+        <url-pattern>/gestionUsuarios</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>agregandoUF</servlet-name>
         <url-pattern>/agregandoUF</url-pattern>
