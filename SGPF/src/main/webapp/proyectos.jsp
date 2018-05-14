@@ -19,6 +19,7 @@
         List<InterUP> inters = (List<InterUP>) session.getAttribute("inters");
         int tipoUsuario = Integer.parseInt(session.getAttribute("tipoUsuario").toString());
     %>
+
 <body>
 	<header>
 		<div class="container">
@@ -47,7 +48,7 @@
 							
 						</li>
 						<li class="nav-item active">
-						 <%if(tipoUsuario==1){%>
+                                                    <%if(tipoUsuario == 1){%>
                         <a class="nav-link" href="gestionUsuarios">
                             Gestionar Usuarios
                         </a>
