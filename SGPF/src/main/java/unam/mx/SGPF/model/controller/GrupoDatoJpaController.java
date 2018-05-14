@@ -19,10 +19,6 @@ import unam.mx.SGPF.model.GrupoDato;
 import unam.mx.SGPF.model.controller.exceptions.IllegalOrphanException;
 import unam.mx.SGPF.model.controller.exceptions.NonexistentEntityException;
 
-/**
- *
- * @author miguel
- */
 public class GrupoDatoJpaController implements Serializable {
 
     public GrupoDatoJpaController(EntityManagerFactory emf) {

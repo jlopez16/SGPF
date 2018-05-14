@@ -19,10 +19,6 @@ import unam.mx.SGPF.model.Usuario;
 import unam.mx.SGPF.model.controller.exceptions.IllegalOrphanException;
 import unam.mx.SGPF.model.controller.exceptions.NonexistentEntityException;
 
-/**
- *
- * @author miguel
- */
 public class UsuarioJpaController implements Serializable {
 
     public UsuarioJpaController(EntityManagerFactory emf) {

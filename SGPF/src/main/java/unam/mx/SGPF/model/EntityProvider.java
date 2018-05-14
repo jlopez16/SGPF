@@ -8,10 +8,6 @@ package unam.mx.SGPF.model;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author miguel
- */
 public class EntityProvider {
 
     private static EntityManagerFactory _emf;
