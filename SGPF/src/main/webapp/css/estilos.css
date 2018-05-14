@@ -1,0 +1,21 @@
+body, html {
+    	height: 100%;
+    	font-family: "Inconsolata", sans-serif;
+}
+header{
+    	background:#2c3e50;
+	color:#fff;
+}
+.menu {
+    display: none;
+}
+.myclass{
+  border-style:none;
+  background-color:transparent;
+  color: rgba(0,0,0,.9);
+  text-decoration: none;
+  display: block;
+  padding: .5rem 1rem;
+  cursor:pointer;
+  cursor: hand;
+}

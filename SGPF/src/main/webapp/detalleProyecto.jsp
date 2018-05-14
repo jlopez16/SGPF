@@ -4,80 +4,125 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Detalles proyecto</title>
-  </head>
-  <%
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Detalles proyecto</title>
+<meta name="viewport"
+	content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+<!--===============================================================================================-->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<%
      List<ProcesoFuncional> pfs = (List<ProcesoFuncional>) session.getAttribute("procFunc");
   	 Proyecto p = (Proyecto) session.getAttribute("proy"); 
          int tipoUsuario = Integer.parseInt(session.getAttribute("tipoUsuario").toString());
   %>
+<body>
+	<header>
+		<div class="container">
+			<h1>Sistema Gestor de Procesos Funcionales</h1>
+		</div>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+						<li class="nav-item active">
+							<%if(tipoUsuario!=3 && p.getEstatus()==1){%> 
+								<a class="nav-link" href="modificaProyecto.jsp">Modificar Proyecto</a> 
+							<% } %>
+						</li>
+						<li class="nav-item activ">
+							<% if(tipoUsuario!=3){%>
+							<form action="eliminaProyecto" method="post">
+								<input type="hidden" name="idProyecto"
+									value="<%=p.getIdproyecto()%>"> 
+								<input class="nav-link myclass " style="color: rgba(0,0,0,.9);border-style:none;background-color:transparent; cursor:pointer; cursor: hand;"
+									type="submit" value="Cambiar Estatus" />
+							</form>
+							<% } %>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="agregaPF.jsp">Agregar PF</a>
+						</li>
+					</ul>
+					
+					<a class="btn btn-outline-success my-2 my-sm-0" href="proyectos.jsp">Back to Projects</a>
 
-  <body>
-    <h1>Detalle proyecto</h1>
-    <table border="1">
-      <tr>
-        <td>Nombre Proyecto:</td>
-        <td><%=p.getNomProy()%></td>
-      </tr>
-      <tr>
-        <td>Año:</td>
-        <td><%=p.getAnioProy()%></td>
-      </tr>
-      <tr>
-        <td>Duracion:</td>
-        <td><%=p.getDuraProy()%></td>
-      </tr>
-      <tr>
-        <%if(tipoUsuario!=3&&p.getEstatus()==1){%>  
-      	<td>
-            <a href="modificaProyecto.jsp"><input type="submit" value="Modificar"/></a> </td>
-        <% } %>
-        <% if(tipoUsuario!=3){%>
-      	<form action="eliminaProyecto" method="post">
-                <input type="hidden" name="idProyecto" value="<%=p.getIdproyecto()%>">
-       		<input type="submit" value="Cambiar Estatus"/>
-      	</form>
-        <% } %>
-      </tr>
-    </table>
-    <br>
-    <h1>Procesos funcionales relacionados al Proyecto</h1>
-    <br><br>
-    <!--<form action="agregarPF" method="POST">-->
-        <!--<input type="hidden" name="idPF" value="<%=p.getIdproyecto()%>">-->
-    <%if(tipoUsuario!=3&&p.getEstatus()==1){%>
-    <a href="agregaPF.jsp">
-        <input type="submit" value="Agregar PF">
-    </a>
-    <% } %>
-    <!--</form>-->
-    <br>
-    <table border="1">
-    <%
-      for (ProcesoFuncional inter : pfs) {
-    %>
-    <tr>
-        <td>Nombre del Proceso Funcional:</td>
-        <td><a href="BuscaProcesoFuncional?idprocesoFuncional=<%=inter.getIdprocesoFuncional()%>"><%=inter.getNomPF()%></a></td>
-        <td>
-            <%if(tipoUsuario!=3&&p.getEstatus()==1){%>  
-            <form action="eliminaPF" method="post">
-                <input type="hidden" name="idPF" value="<%=inter.getIdprocesoFuncional()%>">
-                <input type="submit" value="Eliminar">
-            </form>
-            <% } %>
-        </td>
-      </tr>
-  
-    <%
-      }
-    %>
-    
-     </table>
-    <br>
-    <br>
-    <a href="proyectos.jsp"><input type="submit" value="Back to Projects"</a>
-  </body>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<div class="container py-5">
+		<section class="row">
+			<div class="col-md-12">
+				<h1>Detalle proyecto</h1>
+			</div>
+			<div class="table-responsive ">
+				<table class="table ">
+					<thead>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="col">Nombre Proyecto</th>
+							<td><%=p.getNomProy()%></td>
+						</tr>
+					<tbody>
+				</table>
+			</div>
+
+		</section>
+	</div>
+	<div class="container py-5">
+		<section class="row">
+			<div class="col-md-12">
+				<h3>Procesos funcionales del proyecto</h3>
+			</div>
+			<div class="table-responsive">
+				<table class="table ">
+					<!-- 
+					<thead>
+							<tr>
+								<th scope="col">Nombre Proyecto</th>
+								<th scope="col">Año</th>
+								<th scope="col">Duración</th>
+							</tr>
+						</thead>
+					 -->
+					<thead>
+					</thead>
+					<tbody>
+						<%
+							for (ProcesoFuncional inter : pfs) {
+						%>
+						<tr>
+							<th>Nombre del Proceso Funcional:</th>
+							<td><a
+								href="BuscaProcesoFuncional?idprocesoFuncional=<%=inter.getIdprocesoFuncional()%>"><%=inter.getNomPF()%></a></td>
+							<td>
+								<form action="eliminaPF" method="post">
+									<input type="hidden" name="idPF"
+										value="<%=inter.getIdprocesoFuncional()%>"> <input
+										class="btn btn-outline-info" type="submit" value="Eliminar">
+								</form>
+							</td>
+						</tr>
+
+						<%
+							}
+						%>
+					
+					<tbody>
+				</table>
+			</div>
+		</section>
+	</div>
+
+</body>
 </html>

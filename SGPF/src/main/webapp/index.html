@@ -1,77 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sistema Gestor de Procesos Funcionales</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<title>Sistema Gestor de Procesos Funcionales</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="SGPF">
-				</div>
-
-                            <form class="login100-form validate-form" action="Login" method="POST">
-					<span class="login100-form-title">
-						Sistema Gestor de Procesos Funcionales
-					</span>
-
-					<div class="wrap-input100 validate-input" data-validate = "El usuario es requerido">
-                                            <input class="input100" type="text" name="uname" placeholder="Ingrese su usuario" value="" required>
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Ingrese su contraseña">
-						<input class="input100" type="password" name="psw" placeholder="Ingrese su contraseña" value="" required>
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
-					
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Ingresa
-						</button>
-					</div>
-				</form>
-			</div>
+	<header>
+		<div class="container">
+			<h1>Sistema Gestor de Procesos Funcionales</h1>
 		</div>
-	</div>
-	
-	
+	</header>
+	<div class="container py-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-6 mx-auto">
 
-	
-<!--===============================================================================================-->	
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/tilt/tilt.jquery.min.js"></script>
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
+						<!-- form card login -->
+						<div class="card rounded-0">
+							<div class="card-header">
+								<h3 class="mb-0">Login</h3>
+							</div>
+							<div class="card-body">
+								<form class="form" role="form" autocomplete="off" id="formLogin"
+									novalidate="" action="Login" method="POST">
+									<div class="form-group">
+										<label for="uname1">Usuario</label> <input
+											class="form-control form-control-lg rounded-0" type="text"
+											name="uname" placeholder="Ingrese su usuario" value=""
+											required>
+										<div class="invalid-feedback">Es requerido.</div>
+									</div>
+									<div class="form-group">
+										<label>Contraseña</label> <input
+											class="form-control form-control-lg rounded-0"
+											type="password" name="psw"
+											placeholder="Ingrese su contraseña" value="" required>
+										<div class="invalid-feedback">Es requerido.</div>
+									</div>
+									<button type="submit"
+										class="btn btn-success btn-lg float-right" id="btnLogin">Ingresa</button>
+								</form>
+							</div>
+							<!--/card-block-->
+						</div>
+						<!-- /form card login -->
+					</div>
+				</div>
+				<!--/row-->
+
+			</div>
+			<!--/col-->
+		</div>
+		<!--/row-->
+	</div>
+	<!--/container-->
+	<!-- ------------------------------------------------ -->
+
+
+
+	<script src="js/jquery.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 
 </body>
 </html>
