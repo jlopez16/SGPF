@@ -14,11 +14,9 @@ public class cerrarSesion extends HttpServlet {
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-            Usuario u = new Usuario();
-            InterUP inters = new InterUP();
             HttpSession session = request.getSession(true);
-            session.setAttribute("usuario", u);
-            session.setAttribute("inters", inters);
+            session.invalidate();
             response.sendRedirect("index.html");
+            
     }
 }
