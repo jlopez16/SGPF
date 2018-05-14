@@ -9,6 +9,23 @@
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
  SET NAMES utf8 ;
 
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+BEGIN;
+
+-- -----------------------------------------------------
+-- Schema SGPF
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `SGPF` ;
+
+-- -----------------------------------------------------
+-- Schema SGPF
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `SGPF` DEFAULT CHARACTER SET utf8 ;
+USE `SGPF` ;
+
 --
 -- Table structure for table `accion`
 --
@@ -282,14 +299,12 @@ LOCK TABLES `usuariofuncional` WRITE;
 INSERT INTO `usuariofuncional` VALUES (1,'Registradores','Registrador del IIMAST',1),(2,'C-Reg','Sistema C-Reg',1),(3,'Registrador','Registrador C-Reg',1),(4,'Juano','FHKLI',1);
 /*!40000 ALTER TABLE `usuariofuncional` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2018-05-13 18:23:45
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+COMMIT;
